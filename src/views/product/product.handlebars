@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="/css/estilo.css">
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-5 justify-content-center">
+            {{#each prod.payload}}
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="{{this.thumbnail.[0]}}" alt="..." style="padding: 5px;"/>
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <a class="link-catalog" href="/product/{{this._id}}"><h5 class="fw-bolder">{{this.title}}</h5></a>
+                            <!-- Product price-->
+                            {{this.price}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button class="btn btn-dark" onclick="addProduct('63c1f48201b5a3071ad7e987','{{this._id}}')">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="d-flex justify-content-center">
+                
+                {{#if prod.hasPrevPage}}
+                <a class="btn btn-outline-dark mt-auto" href="{{prod.prevLink}}"><i class="bi bi-caret-left-fill"></i> Anterior</a>
+                {{else}}
+                <a class="btn btn-outline-dark mt-auto disabled" ><i class="bi bi-caret-left-fill"></i> Anterior</a>
+                {{/if}}
+                <a class="btn btn-outline-dark mt-auto disabled">{{ prod.page }}</a>
+                {{#if prod.hasNextPage}}
+                <a class="btn btn-outline-dark mt-auto" href="{{prod.nextLink}}">Siguiente <i class="bi bi-caret-right-fill"></i></a>
+                {{else}}
+                <a class="btn btn-outline-dark mt-auto disabled" >Siguiente <i class="bi bi-caret-right-fill"></i></a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<script src="/js/carrito.js"></script>

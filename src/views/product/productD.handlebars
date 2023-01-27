@@ -1,0 +1,65 @@
+<!--<script src="/js/js-image-zoom.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/js-image-zoom/js-image-zoom.min.js"></script>
+<script src="/js/productD.js"></script>
+<script src="/js/carrito.js"></script>
+<link rel="stylesheet" href="/css/estilo.css">
+
+<div class="container" style="margin-top: 50px;">
+    <div class="row">
+        <div class="gallery-wrapper col-sm-6">
+            <div class="thumb">
+                <ul>
+                    {{#each data.thumbnail}}
+                        <li><img src="{{this}}" alt="..." onclick="gallery(this)"></li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div id="img-container" class="prim-image">
+            <!--    <img src="/img/MOSADEnz97iiFFXEB8oLUEbI3SHLFt.jpg" alt="">-->
+                <img id="prim-image" src="{{data.thumbnail.[0]}}" alt="">
+            </div>
+        </div>
+
+        <div class="g col-sm">
+            <div class="col-12">
+                <div name="titulo">
+                    <h1>{{data.title}}</h1>
+                </div>
+                <div>
+                    <a href="/product/?category={{data.category}}">Categoría: {{data.category}}</a>
+                    <hr>
+                </div>
+                <div style="margin-bottom: 40px;">
+                    <h3>{{data.price}}</h3>
+                </div>
+                <div>
+                    {{#if data.status}}
+                    <span style="color: green;"><b>Disponible</b></span>
+                    {{else}}
+                    <span style="color: red;"><b>No Disponible</b></span>
+                    {{/if}}
+                </div>
+                <form id="addProduct" action="javascript:addProducts('63c1f48201b5a3071ad7e987','{{data._id}}')">
+                    <div style="margin-bottom: 25px; margin-top: 10px;">
+                        <label for="quantity">Cantidad:</label>
+                        <select class="dd" name="quantity" id="quantity" style="width: 15%;">
+                            <option value="{{data.stock}}" selected="">1</option>
+                        </select>
+                        <script type="text/javascript">addOptions({{data.stock}});</script>
+                    </div>
+                    <br>
+                    <div class="d-grid gap-2 col-6 mx-auto" style="margin-bottom: 25px;">
+                        <button class="btn btn-dark">Agregar al Carrito</button>
+                    </div>
+                </form>
+                <div>
+                    <hr>
+                    <b>Acerca de este artículo</b>
+                    <p>{{data.description}}</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+

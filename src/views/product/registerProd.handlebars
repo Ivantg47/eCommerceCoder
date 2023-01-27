@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row justify-content-center ff">
+        <div class="col-auto">
+    <h1>Registrar producto </h1>
+    <hr style="margin-top: 40px;">
+    <form class="row g-3" id="formProd">       
+        <div class="col-md-6">
+            <input class="form-control" type="text" name="title" placeholder="title">
+        </div>
+        <div class="col-md-6">
+            <input class="form-control" type="text" name="category" placeholder="category">
+        </div>
+        <div class="col-12">
+            <input class="form-control" rows="3" type="text" name="description" placeholder="description">
+        </div>
+        <div class="col-7">
+            <input class="form-control" type="text" name="code" placeholder="code">
+        </div>
+        <div class="col-3">
+            <input class="form-control" type="number" name="price" placeholder="$ 0.00">
+        </div>
+        <div class="col-2">
+            <input class="form-control" type="number" name="stock" placeholder="stock">
+        </div>       
+        <div class="col-12">
+            <input class="form-control" type='file' name='thumbnail' multiple/>
+        </div>  
+        <hr style="margin-top: 20px;">     
+        <div >
+            <button type="submit" class="btn btn-dark">Add Product</button>
+        </div>
+    </form>
+    </div>
+    </div>
+</div>
+<style>
+.ff{
+    margin: 100px auto;
+    width: 75%;
+    background-color: #e9ecef;
+    padding: 30px;
+
+}
+</style>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/registerProduct.js"></script>

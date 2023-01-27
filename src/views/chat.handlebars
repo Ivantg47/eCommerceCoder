@@ -1,0 +1,36 @@
+
+
+<div class="container cent" >
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="box box-warning direct-chat direct-chat-warning">
+                    <div class="box-header with-border">
+                        <h3 class="box-title" id="username">Bienvenidos al Chat</h3>
+                        <label for="username" id="userN"></label>
+                    </div>
+                    <div class="box-body">                           
+                        <div class="direct-chat-messages" id="messageLogs">
+                        </div>                    
+                    </div>
+                    <div class="box-footer">
+                        <form id="formMensaje">
+                            <div class="input-group">
+                                <input type="text" id="user" name="user" style="display:none">
+                                <input class="form-control" type="text" name="message" id="message" placeholder="Type Message ..." >
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-warning btn-flat">Send</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>
+<link rel="stylesheet" href="/css/estilo.css">

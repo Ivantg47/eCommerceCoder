@@ -1,0 +1,7 @@
+[{"id":2,"title":"tableta","description":"computador","price":5000,"thumbnail":["img\\3cc31cb51f6d5dfd.jpg"],"code":"002","stock":5,"category":"electronico","status":true},
+{"id":3,"title":"PS4","description":"juego","price":7500,"thumbnail":["/img/noimage.jpg"],"code":"003","stock":5,"category":"electronico","status":true},
+{"id":4,"title":"PS5","description":"juego","price":14000,"thumbnail":["/img/noimage.jpg"],"code":"004","stock":5,"category":"electronico","status":true},
+{"id":5,"title":"PC","description":"equipo","price":25000,"thumbnail":["/img/noimage.jpg"],"code":"005","stock":10,"category":"electronico","status":true},
+{"title":"P90","description":"computador","price":5000,"thumbnail":["/img/noimage.jpg"],"code":"006","stock":1,"category":"electronico","id":6,"status":true},
+{"title":"aaa","category":"electronico","description":"computador","code":"DGKDVHQ11S2Z4","price":11,"stock":1,"thumbnail":["/img/noimage.jpg"],"id":7,"status":true},
+{"title":"bb","category":"electronico","description":"computador","code":"VZ5Y-KJ4C0-ECJ4","price":1212,"stock":2,"thumbnail":["img\\CuaAAhLiLLIwYVGniAhIbghvRi5Bjt.jpg","img\\JzDLEevvAudBIFVXJGDWChkT2hoHMC.jpeg","img\\Xo3IhWUmlWIIln8OevFXfalTPCrJCo.jpg"],"id":8,"status":true}]
