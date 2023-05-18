@@ -1,7 +1,525 @@
-[{"id":2,"title":"tableta","description":"computador","price":5000,"thumbnail":["img\\3cc31cb51f6d5dfd.jpg"],"code":"002","stock":5,"category":"electronico","status":true},
-{"id":3,"title":"PS4","description":"juego","price":7500,"thumbnail":["/img/noimage.jpg"],"code":"003","stock":5,"category":"electronico","status":true},
-{"id":4,"title":"PS5","description":"juego","price":14000,"thumbnail":["/img/noimage.jpg"],"code":"004","stock":5,"category":"electronico","status":true},
-{"id":5,"title":"PC","description":"equipo","price":25000,"thumbnail":["/img/noimage.jpg"],"code":"005","stock":10,"category":"electronico","status":true},
-{"title":"P90","description":"computador","price":5000,"thumbnail":["/img/noimage.jpg"],"code":"006","stock":1,"category":"electronico","id":6,"status":true},
-{"title":"aaa","category":"electronico","description":"computador","code":"DGKDVHQ11S2Z4","price":11,"stock":1,"thumbnail":["/img/noimage.jpg"],"id":7,"status":true},
-{"title":"bb","category":"electronico","description":"computador","code":"VZ5Y-KJ4C0-ECJ4","price":1212,"stock":2,"thumbnail":["img\\CuaAAhLiLLIwYVGniAhIbghvRi5Bjt.jpg","img\\JzDLEevvAudBIFVXJGDWChkT2hoHMC.jpeg","img\\Xo3IhWUmlWIIln8OevFXfalTPCrJCo.jpg"],"id":8,"status":true}]
+[
+  {
+    "id": 2,
+    "title": "tableta",
+    "description": "computador",
+    "price": 5000,
+    "thumbnail": [
+      "\\img\\3cc31cb51f6d5dfd.jpg"
+    ],
+    "code": "002",
+    "stock": 9,
+    "category": "electronico",
+    "status": true
+  },
+  {
+    "id": 3,
+    "title": "PS4",
+    "description": "juego",
+    "price": 7500,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "003",
+    "stock": 11,
+    "category": "electronico",
+    "status": true
+  },
+  {
+    "id": 4,
+    "title": "PS5",
+    "description": "juego",
+    "price": 14000,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "004",
+    "stock": 98,
+    "category": "electronico",
+    "status": true
+  },
+  {
+    "id": 5,
+    "title": "PC",
+    "description": "equipo",
+    "price": 25000,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "005",
+    "stock": 8,
+    "category": "electronico",
+    "status": true
+  },
+  {
+    "title": "P90",
+    "description": "computador",
+    "price": 5000,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "006",
+    "stock": 0,
+    "category": "electronico",
+    "id": 6,
+    "status": true
+  },
+  {
+    "title": "aaa",
+    "category": "electronico",
+    "description": "computador",
+    "code": "DGKDVHQ11S2Z4",
+    "price": 11,
+    "stock": 1,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "id": 7,
+    "status": true
+  },
+  {
+    "title": "bb",
+    "category": "electronico",
+    "description": "computador",
+    "code": "VZ5Y-KJ4C0-ECJ4",
+    "price": 1212,
+    "stock": 1,
+    "thumbnail": [
+      "\\img\\CuaAAhLiLLIwYVGniAhIbghvRi5Bjt.jpg",
+      "\\img\\JzDLEevvAudBIFVXJGDWChkT2hoHMC.jpeg",
+      "\\img\\Xo3IhWUmlWIIln8OevFXfalTPCrJCo.jpg"
+    ],
+    "id": 8,
+    "status": true
+  },
+  {
+    "title": "Rústico Hormigón Ratón",
+    "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+    "price": 861,
+    "thumbnail": "https://loremflickr.com/640/480/animals",
+    "code": "*ftj`",
+    "stock": 40,
+    "category": "Industrial",
+    "status": true,
+    "id": 9
+  },
+  {
+    "title": "Gorgeous Soft Toallas",
+    "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+    "price": 570,
+    "thumbnail": "https://loremflickr.com/640/480/cats",
+    "code": "1Ro>:",
+    "stock": 100,
+    "category": "Música",
+    "status": true,
+    "id": 10
+  },
+  {
+    "title": "Increíble Metal Tocino",
+    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+    "price": 30,
+    "thumbnail": "https://loremflickr.com/640/480/sports",
+    "code": "=^aMR",
+    "stock": 94,
+    "category": "Zapatos",
+    "status": true,
+    "id": 11
+  },
+  {
+    "title": "Sin marca Soft Presidente",
+    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+    "price": "355.00",
+    "thumbnail": "https://loremflickr.com/640/480/abstract",
+    "code": "-.wK,",
+    "stock": 13,
+    "category": "Salud",
+    "status": true,
+    "id": 12
+  },
+  {
+    "title": "Hecho a mano Metal Guantes",
+    "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+    "price": "226.00",
+    "thumbnail": "https://loremflickr.com/640/480/nature",
+    "code": "Z[Zq<",
+    "stock": 10,
+    "category": "Ultramarinos",
+    "status": false,
+    "id": 13
+  },
+  {
+    "title": "Licencia Cotton Zapatos",
+    "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+    "price": "936.00",
+    "thumbnail": "https://loremflickr.com/640/480/animals",
+    "code": "pEy]h",
+    "stock": 70,
+    "category": "Baby",
+    "status": true,
+    "id": 14
+  },
+  {
+    "id": 15,
+    "title": "laptop",
+    "description": "dispositivo computacional para trabajo de oficina",
+    "price": 15000,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "EL005",
+    "stock": 14,
+    "category": "electronico",
+    "status": true,
+    "owner": "adminCoder@coder.com"
+  },
+  {
+    "id": 16,
+    "title": "Refinado Hormigon Pantalones",
+    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    "price": 358,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "OFhzj",
+    "stock": 87,
+    "category": "Joyería",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 17,
+    "title": "Increible Ladrillo Atún",
+    "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+    "price": 194,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "k/,_9",
+    "stock": 64,
+    "category": "Electrónica",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 18,
+    "title": "Sabroso Plástico Guantes",
+    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+    "price": 328,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "7v*8G",
+    "stock": 44,
+    "category": "Música",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 19,
+    "title": "Sabroso Granito Bicicleta",
+    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    "price": 78,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "g>Jpl",
+    "stock": 88,
+    "category": "Electrónica",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 20,
+    "title": "Práctico Madera Pelota",
+    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+    "price": 741,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "+:!d,",
+    "stock": 33,
+    "category": "Joyería",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 21,
+    "title": "Fantástico Acero Toallas",
+    "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+    "price": 910,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "&YF{z",
+    "stock": 25,
+    "category": "Hogar",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 22,
+    "title": "Inteligente Plástico Guantes",
+    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    "price": 9,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "4yErR",
+    "stock": 59,
+    "category": "Librería",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 23,
+    "title": "Práctico Ladrillo Ordenador",
+    "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+    "price": 273,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "'I5(i",
+    "stock": 91,
+    "category": "Bricolaje",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 24,
+    "title": "Fantástico Acero Ensalada",
+    "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+    "price": 555,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "0{Kk!",
+    "stock": 75,
+    "category": "Moda",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 25,
+    "title": "Refinado Metal Coche",
+    "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+    "price": 509,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "1@NfY",
+    "stock": 87,
+    "category": "Moda",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 26,
+    "title": "Increible Hormigon Guantes",
+    "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+    "price": 460,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "1D9vv",
+    "stock": 3,
+    "category": "Cine",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 27,
+    "title": "Ergonómico Ladrillo Teclado",
+    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+    "price": 897,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "1.q'u",
+    "stock": 13,
+    "category": "Deportes",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 28,
+    "title": "Pequeño Hormigon Salchichas",
+    "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+    "price": 698,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "^R$Qw",
+    "stock": 16,
+    "category": "Joyería",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 29,
+    "title": "Genérico Acero Pollo",
+    "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+    "price": 813,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "TieZn",
+    "stock": 74,
+    "category": "Juguetería",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 30,
+    "title": "Artesanal Ladrillo Pescado",
+    "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+    "price": 123,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "N970c",
+    "stock": 28,
+    "category": "Papelería",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 31,
+    "title": "Guapo Hormigon Sopa",
+    "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+    "price": 295,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "o_Hz`",
+    "stock": 37,
+    "category": "Música",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 32,
+    "title": "Hecho a mano Algodón Zapatos",
+    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    "price": 597,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "gr/DP",
+    "stock": 46,
+    "category": "Librería",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 33,
+    "title": "Genérico Ladrillo Pelota",
+    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+    "price": 772,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "`z<1@",
+    "stock": 45,
+    "category": "Deportes",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 34,
+    "title": "Sorprendente Granito Mesa",
+    "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+    "price": 490,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "%+}v3",
+    "stock": 64,
+    "category": "Cine",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 35,
+    "title": "Inteligente Acero Pescado",
+    "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+    "price": 579,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "&2w?d",
+    "stock": 81,
+    "category": "Papelería",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 36,
+    "title": "Pequeño Metal Pollo",
+    "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+    "price": 659,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "`lhb%",
+    "stock": 50,
+    "category": "Joyería",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 37,
+    "title": "Fantástico Madera Atún",
+    "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+    "price": 523,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "p-rX?",
+    "stock": 82,
+    "category": "Papelería",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 38,
+    "title": "Guapa Metal Queso",
+    "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+    "price": 343,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "1!5U\"",
+    "stock": 17,
+    "category": "Electrónica",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 39,
+    "title": "Guapo Madera Raton",
+    "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+    "price": 843,
+    "thumbnail": [
+      "/img/noimage.jpg"
+    ],
+    "code": "4T6[_",
+    "stock": 3,
+    "category": "Joyería",
+    "status": true,
+    "owner": "admin"
+  },
+  {
+    "id": 40,
+    "title": "manga",
+    "description": "historieta grafica",
+    "price": 10,
+    "thumbnail": [
+      "https://firebasestorage.googleapis.com/v0/b/ecommerce-cc190.appspot.com/o/img%2Fproducts%2Fmanga-1684095831237-66?alt=media&token=171e0bcc-895b-44e7-9b84-3ce180ca2037"
+    ],
+    "code": "00001",
+    "stock": 100,
+    "category": "libro",
+    "status": true,
+    "owner": "admin"
+  }
+]

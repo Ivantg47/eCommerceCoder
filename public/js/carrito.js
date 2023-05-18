@@ -1,7 +1,7 @@
 addProduct = async (cid, pid) => {
     //console.log('add', pid);
     const response = await fetch(`/api/carts/${cid}/product/${pid}`, {method: 'POST'})
-    console.log(response);
+    
     if (response.status == 200) {
         alert('Producto añadido')
     } else if (response.status == 401){

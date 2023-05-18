@@ -1,0 +1,21 @@
+<section class="intro">
+    <div class="bg-image h-100">
+        <div class="mask d-flex align-items-center h-100">
+            <div class="container g" style="margin-top: 50px; padding: 30px 50px;">
+                <h2 class="text-end">Confirmación de Compra</h2>
+                <p class="text-end">Número de pedido: <strong>{{ticket.code}}</strong></p>
+                <br>
+                <p>¡Gracias por su compra! Hemos recibido su pedido y lo estamos procesando. Le enviaremos un correo electrónico de confirmación con los detalles de su pedido en breve.</p>
+                <p>Artículos comprados:</p>
+                <ul>
+                    {{#each ticket.products}} 
+                        <li>{{this.title}}</li>
+                    {{/each}}
+                </ul>
+                <p>Total: <strong>{{ticket.amount}}</strong></p>
+                <br>
+            </div>
+        </div>
+    </div>
+</section>
+<link rel="stylesheet" href="/css/estilo.css">

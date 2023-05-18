@@ -1,0 +1,85 @@
+[
+  {
+    "id": 1,
+    "first_name": "admin",
+    "last_name": "admin",
+    "email": "admin@admin.com",
+    "password": "$2b$10$GCpLu8ocYnxcCK34DsfSpOXtRYOq7xTJPkiEOm1Yuob9L/GVSqqzu",
+    "role": "admin",
+    "method": "LOCAL",
+    "cart": 4,
+    "last_connection": "0"
+  },
+  {
+    "id": 2,
+    "first_name": "Pepe",
+    "last_name": "Pecas",
+    "email": "pepe@pecas.com",
+    "password": "$2b$10$CfowUYtvqvtzhHVmy/tieO9PPl1DNWaAWWEZBJQ5y7jymz5OFKspi",
+    "role": "premium",
+    "method": "LOCAL",
+    "cart": 5
+  },
+  {
+    "id": 3,
+    "first_name": "Alicia",
+    "last_name": "Contreras",
+    "email": "JosEmilio.Gaytn@yahoo.com",
+    "password": "$2b$10$Gyx9H2g8XBPmVOkwdA9OaOpfBddf0M3hDUsVsI/g5Y3.1SCj8tpUi",
+    "cart": 6,
+    "role": "user",
+    "method": "LOCAL"
+  },
+  {
+    "id": 4,
+    "first_name": "Gustavo",
+    "last_name": "Saldaña",
+    "email": "Eva.Jquez@hotmail.com",
+    "password": "$2b$10$pL3SNdRh.2piPsL9Etl3/OgL8t4btknfR.5p7S6LccD7SHJrOW/P.",
+    "cart": 7,
+    "role": "user",
+    "method": "LOCAL"
+  },
+  {
+    "id": 5,
+    "first_name": "Marco Antonio",
+    "last_name": "de Jesús",
+    "email": "Jorge46@hotmail.com",
+    "password": "$2b$10$hY6mGj.2CKq8D7sV2LbL.OTL1/vzmxiKx1G.Up7pFP240f/xLruuS",
+    "cart": 8,
+    "role": "user",
+    "method": "LOCAL"
+  },
+  {
+    "id": 6,
+    "first_name": "Manuela",
+    "last_name": "Cazares",
+    "email": "Graciela.Trrez@gmail.com",
+    "password": "$2b$10$WtkI4/YvQ5Tn2kSQhvjJn.Q0BXXJLE6/mNhl90FsSm2MOnsHICWcq",
+    "cart": 9,
+    "role": "user",
+    "method": "LOCAL"
+  },
+  {
+    "id": 7,
+    "first_name": "Iván Antonio",
+    "last_name": "Tronco Gamboa",
+    "email": "ivantg38@yahoo.com.mx",
+    "password": "$2b$10$ookgR.h3egwxlaq5qg8oueuISi8CTov/8Zgo20wy7zeO2F1NSA3PG",
+    "cart": 13,
+    "role": "user",
+    "method": "LOCAL"
+  },
+  {
+    "id": 8,
+    "first_name": "Pepe",
+    "last_name": "admin",
+    "email": "a@a.com",
+    "password": "$2b$10$RS21kteh.A1dM5ErsHQkVutwl6siYGIA9ULlDZ7QHL6/MudFdkeYS",
+    "cart": 14,
+    "role": "user",
+    "method": "LOCAL",
+    "documents": [],
+    "last_connection": null
+  }
+]

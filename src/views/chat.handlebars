@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="box box-warning direct-chat direct-chat-warning">
                     <div class="box-header with-border">
-                        <h3 class="box-title" id="username">Bienvenidos al Chat</h3>
+                        <h3 class="box-title">Bienvenidos <small id="username">{{user.first_name}} {{user.last_name}}</small></h3>
                         <label for="username" id="userN"></label>
                     </div>
                     <div class="box-body">                           
@@ -16,7 +16,9 @@
                     <div class="box-footer">
                         <form id="formMensaje">
                             <div class="input-group">
-                                <input type="text" id="user" name="user" style="display:none">
+                                <select name="user" id="email" style="display:none">
+                                    <option value="{{user.email}}" selected></option>
+                                </select>
                                 <input class="form-control" type="text" name="message" id="message" placeholder="Type Message ..." >
                                 <span class="input-group-btn">
                                     <button type="submit" class="btn btn-warning btn-flat">Send</button>

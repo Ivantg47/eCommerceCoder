@@ -1,0 +1,330 @@
+paths:
+ /api/carts:
+  get:
+   summary: Obtener todos los carritos de compra
+   tags:
+    - Carritos
+   responses:
+    "200":
+     description: Los carritos fueron devueltos satisfactoriamente
+     content:
+      application/json:
+       schema:
+        type: array
+        items:
+         $ref: "#components/schemas/Result"
+       examples:
+        Success:
+          value:
+            status: "success"
+            payload: []
+    "5XX":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+  post:
+   summary: Añade un nuevo carrito
+   tags:
+    - Carritos
+   responses:
+    "200":
+     description: Carrito creado
+     content:
+      application/json:
+       schema:
+        type: array
+        items:
+         $ref: "#components/schemas/Cart"
+    "5XX":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+
+ /api/carts/{cid}:
+  get:
+   summary: Obtine un carrito mediante su id
+   tags:
+    - Carritos
+   parameters:
+   - name: cid
+     in: path
+     required: true
+     description: Id del carrito a buscar
+     schema:
+      $type: String
+   responses:
+    "200":
+     description: Carrito encontrado
+     content:
+      application/json:
+       schema:
+        $ref: "#components/schemas/CartD"
+    "404":
+     description: Carrito no encontrado
+    "5XX":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+  put:
+   summary: Actualiza un carrito mediante su id
+   tags:
+    - Carritos
+   parameters:
+   - name: cid
+     in: path
+     required: true
+     description: Id del carrito a modificar
+     schema:
+      $type: String
+   requestBody:
+    required: true
+    content:
+     application/json:
+      schema:
+       $ref: '#components/requestBodies/updateCart'
+   responses:
+    "200":
+     description: Carrito actualizado
+     content:
+      application/json:
+       schema:
+        $ref: "#components/schemas/Cart"
+    "404":
+     description: Carrito no encontrado
+    "400":
+     description: Error en el tipo de dato o falta de llenar campos
+    "5XX":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+  delete:
+   summary: Elimina un carrito mediante su id
+   tags:
+    - Carritos
+   parameters:
+   - name: cid
+     in: path
+     required: true
+     description: Id del carrito a eliminar
+     schema:
+      $type: String
+   responses:
+    "200":
+     description: Carrito eliminado
+    "404":
+     description: Carrito no encontrado
+    "5XX":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+ /api/carts/{cid}/product/{pid}:
+  post:
+   summary: Agrega un producto al carrito
+   tags:
+    - Carrito producto
+   parameters:
+   - name: cid
+     in: path
+     required: true
+     description: Id del carrito
+     schema:
+      $type: String
+   - name: pid
+     in: path
+     required: true
+     description: Id del producto
+     schema:
+      $type: String
+   requestBody:
+    required: true
+    content:
+     application/json:
+      schema:
+       type: object
+       properties:
+        quantity:
+         type: Number
+         descripcion: Cantidad del producto a comprar
+       example:
+        quantity: 3
+   responses:
+    "200":
+     description: Producto añadido al carrrito
+    "404":
+     description: Carrito o producto no encontrado
+    "5XX":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+  put:
+   summary: Modifica la cantidad de unidades del producto en el carrito
+   tags:
+    - Carrito producto
+   parameters:
+   - name: cid
+     in: path
+     required: true
+     description: Id del carrito
+     schema:
+      $type: String
+   - name: pid
+     in: path
+     required: true
+     description: Id del producto
+     schema:
+      $type: String
+   requestBody:
+    required: true
+    content:
+     application/json:
+      schema:
+       type: object
+       properties:
+        quantity:
+         type: Number
+         descripcion: Cantidad del producto a comprar
+       example:
+        quantity: 3
+   responses:
+    "200":
+     description: Producto en el carrrito actualizado
+     content:
+      application/json:
+       schema:
+        $ref: "#components/schemas/CartD"
+    "404":
+     description: Carrito o producto no encontrado
+    "5XX":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+  delete:
+   summary: Elimina un producto del carrito
+   tags:
+    - Carrito producto
+   parameters:
+   - name: cid
+     in: path
+     required: true
+     description: Id del carrito
+     schema:
+      $type: String
+   - name: pid
+     in: path
+     required: true
+     description: Id del producto
+     schema:
+      $type: String
+   responses:
+    "200":
+     description: Producto en el carrrito eliminado
+    "404":
+     description: Carrito o producto no encontrado
+    "5XX":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+ /api/carts/{cid}/purchase:
+  get:
+   summary: Procede a generar un tiket de compra
+   tags:
+    - Carritos
+   parameters:
+   - name: cid
+     in: path
+     required: true
+     description: Id del carrito
+     schema:
+      $type: String
+   responses:
+    "200":
+     description: Ticket generado
+     content:
+      application/json:
+       schema:
+        $ref: "#components/schemas/Result"
+       examples:
+        Success:
+          value:
+            status: "success"
+            message: "Compra realizada"
+            payload: {}
+        Partial:
+          value:
+            status: "partial"
+            message: "Algunos productos no pudieron ser procesados"
+            payload: {}
+    "404":
+     description: Carrito no encontrado
+    "5XX":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+
+
+components: 
+ schemas:
+  Cart:
+   type: object
+   properties:
+    _id:
+     type: ObjectId
+     description: ID auto generado
+    products:
+     type: array
+     items:
+      $ref: '#components/schemas/Products'
+     description: Arreglo de productos
+   example:
+    _id: ObjectId('63fe811db3271366223f030d')
+    products: []
+  CartD:
+   type: object
+   properties:
+    _id:
+     type: ObjectId
+     description: ID auto generado
+    products:
+     type: array
+     items:
+      $ref: '#components/schemas/ProductsD'
+     description: Arreglo de productos
+   example:
+    _id: ObjectId('63fe811db3271366223f030d')
+    products: []
+  Products:
+   type: object
+   properties:
+    product:
+     type: ObjectId
+     description: ID de producto
+    quantity:
+     type: Number
+     descripcion: Cantidad del producto a comprar
+   example:
+    product: ObjectId('63e559734223e2fb0bb628c5')
+    quantity: 3
+  ProductsD:
+   type: object
+   properties:
+    product:
+     $ref: '#components/schemas/Product'
+     description: Detalles del producto
+    quantity:
+     type: Number
+     descripcion: Cantidad del producto a comprar
+   example:
+    product: ObjectId('63e559734223e2fb0bb628c5')
+    quantity: 3
+  Result:
+   type: object
+   properties:
+    status:
+     type: String
+     description: Indica el estado de la operacion
+    message:
+     type: String
+     description: Indica el resultado de la operacion
+    payload:
+     type: object
+     oneOf:
+      - $ref: '#components/schemas/Products'
+      - $ref: '#components/schemas/ProductsD'
+      - $ref: "#components/schemas/Cart"
+     descripcion: Muestra los datos generados en la BD
+   
+ requestBodies:
+  updateCart:
+   type: object
+   properties:
+    products:
+     type: array
+     items:
+      $ref: '#components/schemas/Products'
+     description: Arreglo de productos
+   example:
+    products: [{product: ObjectId('63e559734223e2fb0bb628c5'), quantity: 3}]
+
+tags: []

@@ -15,8 +15,7 @@
                 </ul>
             </div>
             <div id="img-container" class="prim-image">
-            <!--    <img src="/img/MOSADEnz97iiFFXEB8oLUEbI3SHLFt.jpg" alt="">-->
-                <img id="prim-image" src="{{data.thumbnail.[0]}}" alt="">
+                <img id="prim-image" class="cen" src="{{data.thumbnail.[0]}}" alt="">
             </div>
         </div>
 
@@ -39,7 +38,7 @@
                     <span style="color: red;"><b>No Disponible</b></span>
                     {{/if}}
                 </div>
-                <form id="addProduct" action="javascript:addProducts('63c1f48201b5a3071ad7e987','{{data._id}}')">
+                <form id="addProduct" action="javascript:addProducts('{{user.cart}}','{{data.id}}')">
                     <div style="margin-bottom: 25px; margin-top: 10px;">
                         <label for="quantity">Cantidad:</label>
                         <select class="dd" name="quantity" id="quantity" style="width: 15%;">

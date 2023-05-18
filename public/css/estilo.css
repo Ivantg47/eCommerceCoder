@@ -143,7 +143,7 @@ td {
 }
 /* -------------------------galeria detalle producto ---------------------*/
 .gallery-wrapper{
-    width: 60%;
+    width: 50%;
     background: rgba(255, 255, 255, 0.8);
     padding: 10px;
     display: flex;
@@ -188,8 +188,11 @@ td {
 }
 .prim-image img{
     max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
-    
+    padding: 20px;
 }
 
 .pad{
@@ -223,4 +226,9 @@ td {
 
 .link-catalog:active{
     color: black
+}
+
+.cen{
+    display : block;
+    margin : auto;
 }

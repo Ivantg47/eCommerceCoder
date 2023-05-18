@@ -1,0 +1,195 @@
+# paths:
+#   /api/users:
+#     get:
+#       summary: Obtiene todos los usuarios
+#       tags:
+#        - Users
+#       responses:
+#         "200":
+#           description: Los usuarios fueron devuelvos satisfactoriamente.
+#           content:
+#             application/json:
+#               schema:
+#                 type: array
+#                 items:
+#                   $ref: '#components/schemas/User'
+#         "500":
+#           description: Error interno del server. Query defectuosa o un fallo a la conexion a la DB
+#   /api/users/{uid}:
+#     get:
+#       summary: Obtiene un user
+#       tags:
+#         - Users
+#       parameters:
+#       - name: uid
+#         in: path
+#         required: true
+#         description: ID del usuario que se solicita
+#         schema:
+#           $type: String
+#       responses:
+#         "200":
+#           description: Usuario Encontrado
+#           content:
+#             application/json:
+#               schema:
+#                 $ref: '#components/schemas/User'
+#     put:
+#       summary: actualiza un user a partir del ID
+#       tags:
+#         - Users
+#       parameters:
+#       - name: uid
+#         in: path
+#         required: true
+#         description: ID del usuario que se solicita
+#         schema:
+#           $type: String
+#       requestBody:
+#         required: true
+#         content:
+#           application/json:
+#             schema:
+#               $ref: '#components/requestBodies/updateUser'
+# components:
+#   schemas:
+#     User:
+#       type: object
+#       properties:
+#         _id:
+#           type: ObjectId
+#           description: ID auto generado en mongo
+#         first_name:
+#           type: String
+#           description: Primer nombre
+#         last_name:
+#           type: String
+#           description: Apellido
+#         email:
+#           type: String
+#           description: Email del usuario
+#         password:
+#           type: String
+#           description: Password hasheado del user
+#       example:
+#         _id: ObjectId("63d05a63e763debe04cc8dfe")
+#         first_name: German
+#         last_name: Rodas
+#         email: german@gmail.com
+#         password: "$2b$10$Cf.uErjQ/lEzypTNfyE1IuFGxVXSRqGzjFWBYwL9KLK4Fe29kvu.e"
+#   requestBodies:
+#     updateUser:
+#       type: object
+#       properties:
+#         first_name:
+#           type: String
+#           description: Primer nombre
+#         last_name:
+#           type: String
+#           description: Apellido
+#         email:
+#           type: String
+#           description: Email del usuario
+#         password:
+#           type: String
+#           description: Password hasheado del user
+#       example:
+#         first_name: German
+#         last_name: Rodas
+#         email: german@gmail.com
+#         password: "$2b$10$Cf.uErjQ/lEzypTNfyE1IuFGxVXSRqGzjFWBYwL9KLK4Fe29kvu.e"
+# tags: []
+
+paths:
+ /api/users:
+  get:
+   summary: Obtener todos los usuarios
+   tags:
+    - Usuarios
+   responses:
+    "200":
+     description: Los usuatrios fueron devueltos satisfactoriamente
+     content:
+      application/json:
+       schema:
+        type: array
+        items:
+         $ref: "#components/schemas/User"
+    "500":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+ /premium/{uid}:
+  get:
+   summary: Cambia el rol de un usuario de user a premium y de premium a user
+   tags:
+    - Usuarios
+   response:
+    "200":
+     description: El rol del usuario se cambio con exito
+    "500":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+ /api/users/{uid}:
+  get:
+   summary: Obtine un usuario mediante su id
+   tags:
+    - Users
+   parameters:
+   - name: uid
+     in: path
+     required: true
+     description: Id del usuario a buscar
+     schema:
+      $type: String
+   responses:
+    "200":
+     description: Usuario encontrado
+     content:
+      application/json:
+       schema:
+        $ref: "#components/schemas/User"
+    "404":
+     description: Usuario no encontrado
+
+components: 
+ schemas:
+  User:
+   type: object
+   properties:
+    _id:
+     type: ObjectId
+     description: ID auto generado
+    first_name:
+     type: String
+     description: Nombre del usuario
+    last_name:
+     type: String
+     description: Apellido del usuario
+    email:
+     type: String
+     description: Correo electronico del usuario
+    password:
+     type: String 
+     description: Contraseña cifrada del usuario
+    age:
+     type: Date
+     description: Fecha de nacimiento del usuario
+    cart:
+     type: ObjectId
+     description: Identificador del carrito asignado al usuario
+    role:
+     type: String
+     description: Nivel de privilegios asignados al usuario
+    method:
+     type: String
+     description: Metodo por el cual se registro el usuario
+   example:
+    _id: ObjectId('63e559734223e2fb0bb628c5')
+    first_name: Pepe
+    last_name: Pecas
+    email: pepe.pecas@correo.com
+    password: "$2b$10$Cf.uErjQ/lEzypTNfyE1IuFGxVXSRqGzjFWBYwL9KLK4Fe29kvu.e"
+    age: 28/02/1991
+    cart: ObjectId('63fe811db3271366223f030c')
+    role: user
+    method: LOCAL
+    
+tags: []

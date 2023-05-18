@@ -6,8 +6,9 @@ const formProd = document.getElementById('formProd')
 socket.on('lista', lista => {
     
     let lProducts 
-    if (lista.isValid) {
-        lProducts = lista.payload.map(prod => 
+    
+    if (lista.code === 200) {
+        lProducts = lista.result.payload.map(prod => 
             `<tr>
                 <td style="display:none">${prod._id}</td>
                 <td><img src="${prod.thumbnail[0]}" alt="No image" width="72" height="72" style="vertical-align:middle; object-fit: contain;"></td>
@@ -29,29 +30,35 @@ formProd.addEventListener("submit", async (e) => {
 
     const formData = new FormData(formProd);
 
-    // console.log(product);
-    //console.log(formData);
-    const response = await fetch("/api/product", {
+    const response = await fetch("/api/products", {
         body: formData,
         method: "POST",        
     });
-
-    const res = await response.json()
-    console.log(res);
-    if(res.success){
-        Swal.fire({
-            icon: 'success',
-            text: res.message
-        })
-        ocultar()
-        formProd.reset()
-        socket.emit('updateList')
-    } else {
+    if (response.status == 403) {
         Swal.fire({
             icon: 'error',
-            text: res.message
+            text: 'No está autorizado para realizar esta acción.'
         })
+        formProd.reset()
+    } else {
+        const res = await response.json()
+    
+        if(res.success){
+            Swal.fire({
+                icon: 'success',
+                text: res.message
+            })
+            ocultar()
+            formProd.reset()
+            socket.emit('updateList')
+        } else {
+            Swal.fire({
+                icon: 'error',
+                text: res.message
+            })
+        }
     }
+    
     
 
     //console.log(res);

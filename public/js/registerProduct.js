@@ -6,15 +6,15 @@ formProd.addEventListener("submit", async (e) => {
     const formData = new FormData(formProd);
 
     // console.log(product);
-    console.log(formData);
-    const response = await fetch("/api/product", {
-        body: formData,
+    // console.log(formData);
+    const response = await fetch("/api/products", {
         method: "POST",        
+        body: formData,
     });
 
     const res = await response.json()
-    console.log(res);
-    if(res.success){
+    // console.log(res);
+    if(res.status == "success"){
         Swal.fire({
             icon: 'success',
             text: res.message

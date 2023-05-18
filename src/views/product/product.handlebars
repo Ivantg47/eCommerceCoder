@@ -2,6 +2,7 @@
 
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
+    {{#if prod.isValid}}
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-5 justify-content-center">
             {{#each prod.payload}}
             <div class="col mb-5">
@@ -12,7 +13,7 @@
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name-->
-                            <a class="link-catalog" href="/product/{{this._id}}"><h5 class="fw-bolder">{{this.title}}</h5></a>
+                            <a class="link-catalog" href="/products/{{this._id}}{{this.id}}"><h5 class="fw-bolder">{{this.title}}</h5></a>
                             <!-- Product price-->
                             {{this.price}}
                         </div>
@@ -20,7 +21,7 @@
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div class="text-center">
-                            <button class="btn btn-dark" onclick="addProduct('63c1f48201b5a3071ad7e987','{{this._id}}')">Add to cart</button>
+                            <button class="btn btn-dark" onclick="addProduct('{{../user.cart}}','{{this.id}}{{this._id}}')">Add to cart</button>
                         </div>
                     </div>
                 </div>
@@ -29,22 +30,43 @@
         </div>
         <div class="row d-flex justify-content-center">
             <div class="d-flex justify-content-center">
-                
-                {{#if prod.hasPrevPage}}
-                <a class="btn btn-outline-dark mt-auto" href="{{prod.prevLink}}"><i class="bi bi-caret-left-fill"></i> Anterior</a>
-                {{else}}
-                <a class="btn btn-outline-dark mt-auto disabled" ><i class="bi bi-caret-left-fill"></i> Anterior</a>
-                {{/if}}
-                <a class="btn btn-outline-dark mt-auto disabled">{{ prod.page }}</a>
-                {{#if prod.hasNextPage}}
-                <a class="btn btn-outline-dark mt-auto" href="{{prod.nextLink}}">Siguiente <i class="bi bi-caret-right-fill"></i></a>
-                {{else}}
-                <a class="btn btn-outline-dark mt-auto disabled" >Siguiente <i class="bi bi-caret-right-fill"></i></a>
-                {{/if}}
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        {{#if prod.hasPrevPage}}
+                        <li class="page-item">
+                            <a class="page-link" href="{{prod.prevLink}}"><i class="bi bi-caret-left-fill"></i> Anterior</a>
+                        </li>
+                        {{else}}
+                        <li class="page-item disabled">
+                            <span class="page-link"><i class="bi bi-caret-left-fill"></i> Anterior</span>
+                        </li>
+                        {{/if}}
+                        {{#each pagination}}
+                            {{#if this.active}}
+                                <li class="page-item active" aria-current="page">
+                                    <span class="page-link">{{this.page}}</span>
+                                </li>
+                            {{else}}
+                                <li class="page-item"><a class="page-link" href="/products?page={{this.page}}">{{this.page}}</a></li>
+                            {{/if}}
+                        {{/each}}
+                        {{#if prod.hasNextPage}}
+                        <li class="page-item">
+                            <a class="page-link" href="{{prod.nextLink}}">Siguiente <i class="bi bi-caret-right-fill"></i></a>
+                        </li>
+                        {{else}}
+                        <li class="page-item disabled">
+                            <span class="page-link">Siguiente <i class="bi bi-caret-right-fill"></i></span>
+                        </li>
+                        {{/if}}
+                    </ul>
+                </nav>
             </div>
         </div>
-    </div>
-    
+    {{else}}
+        <h2>No hay productos disponibles</h2>
+    {{/if}}
+    </div>  
 </section>
 
 <script src="/js/carrito.js"></script>

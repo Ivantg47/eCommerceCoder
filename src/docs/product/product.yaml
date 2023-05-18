@@ -1,0 +1,199 @@
+paths:
+ /api/products:
+  get:
+   summary: Obtener todos los productos
+   tags:
+    - Productos
+   responses:
+    "200":
+     description: Los productos fueron devueltos satisfactoriamente
+     content:
+      application/json:
+       schema:
+        type: array
+        items:
+         $ref: "#components/schemas/Product"
+    "500":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+  post:
+   summary: Añade un nuevo producto
+   tags:
+    - Productos
+   requestBody:
+    required: true
+    content:
+     application/json:
+      schema:
+       $ref: '#components/requestBodies/updateProduct'
+   responses:
+    "200":
+     description: Producto creado
+     content:
+      application/json:
+       schema:
+        type: array
+        items:
+         $ref: "#components/schemas/Product"
+    "400":
+     description: Error en el tipo de dato o falta de llenar campos
+    "500":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+ /api/products/{pid}:
+  get:
+   summary: Obtine un producto mediante su id
+   tags:
+    - Productos
+   parameters:
+   - name: pid
+     in: path
+     required: true
+     description: Id del producto a buscar
+     schema:
+      $type: String
+   responses:
+    "200":
+     description: Producto encontrado
+     content:
+      application/json:
+       schema:
+        $ref: "#components/schemas/Product"
+    "404":
+     description: Producto no encontrado
+  put:
+   summary: Actualiza un producto mediante su id
+   tags:
+    - Productos
+   parameters:
+   - name: pid
+     in: path
+     required: true
+     description: Id del producto a modificar
+     schema:
+      $type: String
+   requestBody:
+    required: true
+    content:
+     application/json:
+      schema:
+       $ref: '#components/requestBodies/updateProduct'
+   responses:
+    "200":
+     description: Producto actualizado
+     content:
+      application/json:
+       schema:
+        $ref: "#components/schemas/Product"
+    "404":
+     description: Producto no encontrado
+    "400":
+     description: Error en el tipo de dato o falta de llenar campos
+    "500":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+  delete:
+   summary: Elimina un producto mediante su id
+   tags:
+    - Productos
+   parameters:
+   - name: pid
+     in: path
+     required: true
+     description: Id del producto a eliminar
+     schema:
+      $type: String
+   responses:
+    "200":
+     description: Producto eliminado
+    "404":
+     description: Producto no encontrado
+    "500":
+     description: Error interno del servidor. Consulta defectuoso o imposibididad de conectarse ala BD
+
+components: 
+ schemas:
+  Product:
+   type: object
+   properties:
+    _id:
+     type: ObjectId
+     description: ID auto generado
+    title:
+     type: String
+     description: Nombre del producto
+    description:
+     type: String
+     description: Descripcion del producto
+    price:
+     type: Number
+     description: precio del producto
+    thumbnail:
+     type: array
+     description: Direccion de las imagenes del producto 
+    code:
+     type: String
+     description: Codigo de identificacion del producto
+    stock:
+     type: Number
+     description: Cantidad de piesas disponibles
+    category:
+     type: String
+     description: Categorria a la que pertenece el producto
+    status:
+     type: Boolean
+     description: Indicador de disponibilidad del producto
+    owner:
+     type: String
+     description: Correo de quien dio de alta el producto
+   example:
+    _id: ObjectId('63e559734223e2fb0bb628c5')
+    title: Pelota
+    description: pelota de goma de multiples colores
+    price: 50.00
+    thumbnail: ["/img/pelota.jpg"]
+    code: P001
+    stock: 100
+    category: Jugetes
+    status: true
+    owner: admin
+ requestBodies:
+  updateProduct:
+   type: object
+   properties:
+    title:
+     type: String
+     description: Nombre del producto
+    description:
+     type: String
+     description: Descripcion del producto
+    price:
+     type: Number
+     description: precio del producto
+    thumbnail:
+     type: array
+     description: Direccion de las imagenes del producto 
+    code:
+     type: String
+     description: Codigo de identificacion del producto
+    stock:
+     type: Number
+     description: Cantidad de piesas disponibles
+    category:
+     type: String
+     description: Categorria a la que pertenece el producto
+    status:
+     type: Boolean
+     description: Indicador de disponibilidad del producto
+    owner:
+     type: String
+     description: Correo de quien dio de alta el producto
+   example:
+    title: Pelota
+    description: pelota de goma de multiples colores
+    price: 50.00
+    thumbnail: ["/img/pelota.jpg"]
+    code: P001
+    stock: 100
+    category: Jugetes
+    status: true
+    owner: admin
+
+tags: []

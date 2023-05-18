@@ -7,34 +7,63 @@
                 <h3 class="text-whitesmoke">Registro de Usuario</h3>
                 <br>
             <div class="container-content">
-                <form class="margin-t" action="/api/session/create" method="POST">
-                    <div class="input-group mb-3">
+                <form id="registro" class="margin-t" action="/session/register" method="POST">
+                    <div class="input-group mt-3">
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
-                        <input type="text" name="first_name" class="form-control" placeholder="first name" aria-label="first name" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-                        <input type="text" name="last_name" class="form-control" placeholder="last name" aria-label="last name" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
-                        <input type="text" name="email" class="form-control" placeholder="email" aria-label="email" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill"></i></span>
-                        <input type="password" name="password" class="form-control" placeholder="*****" aria-label="password" aria-describedby="basic-addon1">
+                        <input type="text" name="first_name" class="form-control" placeholder="nombre" aria-label="first name" aria-describedby="basic-addon1" >
+                        <br>
                     </div>
                     
-                    <button type="submit" class="form-button button-l margin-b">Registrar</button>
-    
-                    <!--<a class="text-darkyellow" href="#"><small>Forgot your password?</small></a>-->
+                    <div class="input-group mt-4">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
+                        <input type="text" name="last_name" class="form-control" placeholder="apellido" aria-label="last name" aria-describedby="basic-addon1" >
+                    </div>
+                    
+                    <div class="input-group mt-4">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar2-event"></i></span>
+                        <input type="date" name="date" class="form-control" placeholder="Fecha de nacimiento" aria-label="date" aria-describedby="basic-addon1" >
+                    </div>
+
+                    <div class="input-group mt-4">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope-fill"></i></span>
+                        <input type="email" name="email" class="form-control" placeholder="correo electronico" aria-label="email" aria-describedby="basic-addon1" >
+                    </div>
+                    
+                    <div class="input-group mt-4">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill"></i></span>
+                        <input id="password" type="password" name="password" class="form-control" placeholder="contraseña" aria-label="password" aria-describedby="basic-addon1" >
+                        <button id="show_password" class="input-group-text" type="button" onclick="mostrarPassword('password')"> <span class="bi bi-eye-slash-fill password"></span> </button>
+                    </div>
+                    
+                    <div class="input-group mt-4">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-key"></i></span>
+                        <input id="confirm_password" type="password" name="confirm_password" class="form-control" placeholder="confirmar contraseña" aria-label="password" aria-describedby="basic-addon1" >
+                        <button id="show_password" class="input-group-text" type="button" onclick="mostrarPassword('confirm_password')"> <span class="bi bi-eye-slash-fill confirm_password"></span> </button>
+                    </div>
+                    
+                    <button type="submit" class="form-button button-l margin-b mt-4">Registrar</button>
                     
                 </form>
 
                 <p class="text-whitesmoke text-center">
-                    <small>Have an account?</small>
-                    <a class="text-darkyellow" href="/login"><small>Log In</small></a>
+                    <small>¿Ya tienes una cuenta?</small>
+                    <a class="text-darkyellow" href="/session/login"><small>Acceder</small></a>
                 </p>
             </div>
     </div>
 </div>
+<script src="/js/validar.js"></script>
+<script type="text/javascript">
+function mostrarPassword(pass){
+    let cambio = document.getElementById(pass);
+    if(cambio.type == "password"){
+        cambio.type = "text";
+        $('.'+pass).removeClass('bi bi-eye-slash-fill').addClass('bi bi-eye-fill');
+    }else{
+        cambio.type = "password";
+        $('.'+pass).removeClass('bi bi-eye-fill').addClass('bi bi-eye-slash-fill');
+    }
+} 
+	
+
+</script>

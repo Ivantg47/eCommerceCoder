@@ -1,0 +1,261 @@
+[
+  {
+    "code": 1678648631791,
+    "purchase_datetime": 1678648624592,
+    "amount": 15000,
+    "purchaser": "no email",
+    "id": 1
+  },
+  {
+    "code": 1678648710117,
+    "purchase_datetime": 1678648706670,
+    "amount": 15000,
+    "purchaser": "no email",
+    "id": 2
+  },
+  {
+    "code": 1678648974227,
+    "purchase_datetime": 1678648964865,
+    "amount": 15000,
+    "purchaser": "no email",
+    "id": 3
+  },
+  {
+    "code": 1678649133801,
+    "purchase_datetime": 1678649124285,
+    "amount": 15000,
+    "purchaser": "no email",
+    "id": 4
+  },
+  {
+    "code": 1678649539622,
+    "purchase_datetime": 1678649536579,
+    "amount": 15000,
+    "purchaser": "no email",
+    "id": 5
+  },
+  {
+    "code": 1678649873947,
+    "purchase_datetime": 1678649865967,
+    "amount": 15000,
+    "purchaser": "no email",
+    "id": 6
+  },
+  {
+    "code": 1681513149945,
+    "purchase_datetime": 1681513147155,
+    "amount": 1715,
+    "purchaser": "Emilio_Olmos@yahoo.com",
+    "id": 7
+  },
+  {
+    "code": 1681513370368,
+    "purchase_datetime": 1681513367759,
+    "amount": 975,
+    "purchaser": "Emilio_Olmos@yahoo.com",
+    "id": 8
+  },
+  {
+    "code": 1681513558354,
+    "purchase_datetime": 1681513548483,
+    "amount": 4850,
+    "purchaser": "Emilio_Olmos@yahoo.com",
+    "id": 9
+  },
+  {
+    "code": 1681513999224,
+    "purchase_datetime": 1681513994297,
+    "amount": 4830,
+    "purchaser": "Emilio_Olmos@yahoo.com",
+    "id": 10
+  },
+  {
+    "code": 1681514142991,
+    "purchase_datetime": 1681514134527,
+    "amount": 585,
+    "purchaser": "Emilio_Olmos@yahoo.com",
+    "id": 11
+  },
+  {
+    "code": 1681514235294,
+    "purchase_datetime": 1681514234882,
+    "amount": 1020,
+    "purchaser": "Emilio_Olmos@yahoo.com",
+    "id": 12
+  },
+  {
+    "code": 1681514272360,
+    "purchase_datetime": 1681514269533,
+    "amount": 4930,
+    "purchaser": "Emilio_Olmos@yahoo.com",
+    "id": 13
+  },
+  {
+    "code": 1681514533368,
+    "purchase_datetime": 1681514530509,
+    "amount": 2340,
+    "purchaser": "Emilio_Olmos@yahoo.com",
+    "id": 14
+  },
+  {
+    "code": 1681514639760,
+    "purchase_datetime": 1681514635273,
+    "amount": 1670,
+    "purchaser": "Emilio_Olmos@yahoo.com",
+    "id": 15
+  },
+  {
+    "code": 1681514779890,
+    "purchase_datetime": 1681514775472,
+    "amount": 635,
+    "purchaser": "Emilio_Olmos@yahoo.com",
+    "id": 16
+  },
+  {
+    "code": 1681516048404,
+    "purchase_datetime": 1681516040951,
+    "amount": 145,
+    "purchaser": "Adn47@gmail.com",
+    "id": 17
+  },
+  {
+    "code": 1681516311033,
+    "purchase_datetime": 1681516308320,
+    "amount": 2075,
+    "purchaser": "Amalia.Bravo@gmail.com",
+    "id": 18
+  },
+  {
+    "code": 1682444883427,
+    "purchase_datetime": 1682444882569,
+    "amount": 2445,
+    "purchaser": "Vicente.Njera69@yahoo.com",
+    "id": 19
+  },
+  {
+    "code": 1684283910854,
+    "purchase_datetime": 1684283903023,
+    "amount": 10000,
+    "purchaser": "pepe@pecas.com",
+    "id": 20
+  },
+  {
+    "code": 1684284544176,
+    "purchase_datetime": 1684284538340,
+    "amount": 7500,
+    "purchaser": "pepe@pecas.com",
+    "id": 21
+  },
+  {
+    "code": 1684284887553,
+    "purchase_datetime": 1684284877837,
+    "amount": 14000,
+    "purchaser": "pepe@pecas.com",
+    "id": 22
+  },
+  {
+    "code": 1684285569714,
+    "purchase_datetime": 1684285565943,
+    "amount": 28000,
+    "purchaser": "pepe@pecas.com",
+    "id": 23
+  },
+  {
+    "code": 1684346309018,
+    "purchase_datetime": 1684346300653,
+    "amount": 25000,
+    "purchaser": "pepe@pecas.com",
+    "id": 24
+  },
+  {
+    "code": 1684346391819,
+    "purchase_datetime": 1684346386630,
+    "amount": 1212,
+    "purchaser": "pepe@pecas.com",
+    "id": 25
+  },
+  {
+    "code": 1684346455951,
+    "purchase_datetime": 1684346446989,
+    "amount": 5000,
+    "purchaser": "pepe@pecas.com",
+    "id": 26
+  },
+  {
+    "code": 1684346526633,
+    "purchase_datetime": 1684346519508,
+    "amount": 15000,
+    "purchaser": "pepe@pecas.com",
+    "id": 27
+  },
+  {
+    "code": 1684348135671,
+    "purchase_datetime": 1684348126481,
+    "amount": 5000,
+    "purchaser": "pepe@pecas.com",
+    "id": 28
+  },
+  {
+    "code": 1684348448440,
+    "purchase_datetime": 1684348443348,
+    "amount": 7500,
+    "purchaser": "pepe@pecas.com",
+    "id": 29
+  },
+  {
+    "code": 1684348531028,
+    "purchase_datetime": 1684348522670,
+    "amount": 14000,
+    "purchaser": "pepe@pecas.com",
+    "id": 30
+  },
+  {
+    "code": 1684348640350,
+    "purchase_datetime": 1684348633143,
+    "amount": 25000,
+    "purchaser": "pepe@pecas.com",
+    "id": 31
+  },
+  {
+    "code": 1684369522543,
+    "purchase_datetime": 1684369513022,
+    "amount": 14000,
+    "purchaser": "pepe@pecas.com",
+    "id": 32
+  },
+  {
+    "code": 1684370842806,
+    "purchase_datetime": 1684370836869,
+    "amount": 28000,
+    "purchaser": "pepe@pecas.com",
+    "id": 33
+  },
+  {
+    "code": 1684370957458,
+    "purchase_datetime": 1684370953959,
+    "amount": 5000,
+    "purchaser": "pepe@pecas.com",
+    "id": 34
+  },
+  {
+    "code": 1684371508685,
+    "purchase_datetime": 1684371499396,
+    "amount": 5000,
+    "purchaser": "pepe@pecas.com",
+    "id": 35
+  },
+  {
+    "code": 1684371552024,
+    "purchase_datetime": 1684371545548,
+    "amount": 5000,
+    "purchaser": "pepe@pecas.com",
+    "id": 36
+  },
+  {
+    "code": 1684372156512,
+    "purchase_datetime": 1684372149274,
+    "amount": 12500,
+    "purchaser": "pepe@pecas.com",
+    "id": 37
+  }
+]

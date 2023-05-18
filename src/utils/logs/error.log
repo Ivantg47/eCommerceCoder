@@ -1,0 +1,197 @@
+fatal: FATAL ERROR
+error: error on DB
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_INVALID_STATUS_CODE"}
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: jwt malformed {"name":"JsonWebTokenError"}
+error: invalid signature {"name":"JsonWebTokenError"}
+error: undefined
+error: invalid signature {"name":"JsonWebTokenError"}
+error: invalid signature {"name":"JsonWebTokenError"}
+error: undefined
+error: undefined
+error: undefined
+error: TypeError
+error: Assignment to constant variable.
+error: Assignment to constant variable.
+error: token
+error: Assignment to constant variable.
+error: undefined
+error: userModel is not defined
+error: userModel is not defined
+error: isValidPassword is not defined
+error: undefined
+error: undefined
+error: this.dao.updateUser is not a function
+error: undefined
+error: req.logger.debbug is not a function
+error: Cannot convert object to primitive value
+error: Cannot convert object to primitive value
+error: Cannot convert object to primitive value
+error: undefined
+error: Cannot convert object to primitive value
+error: Cannot convert object to primitive value
+error: Cannot convert object to primitive value
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: undefined
+error: Cannot read properties of undefined (reading 'code')
+error: undefined
+error: Cannot read properties of undefined (reading 'code')
+error: undefined
+error: Cannot read properties of undefined (reading 'code')
+error: undefined
+error: Cannot read properties of undefined (reading 'code')
+error: logger is not defined
+error: undefined
+error: filtro is not defined
+error: undefined
+error: filtro is not defined
+error: undefined
+error: ProductService is not defined
+error: undefined
+error: undefined
+error: undefined
+error: jwt is not defined
+error: jwt is not defined
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: undefined {"code":"ERR_HTTP_HEADERS_SENT"}
+error: jwt is not defined
+error: jwt is not defined
+error: jwt is not defined
+error: jwt is not defined
+error: token is not defined
+error: token is not defined
+error: token is not defined
+error: message is not defined
+error: message is not defined
+error: message is not defined
+error: message is not defined
+error: message is not defined
+error: message is not defined
+error: message is not defined
+error: message is not defined
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of undefined (reading 'role')
+error: Cannot read properties of null (reading 'stock')
+error: Cannot read properties of null (reading 'stock')
+error: Cannot read properties of null (reading 'stock')
+error: Cannot read properties of null (reading 'stock')
+error: Cannot read properties of null (reading 'stock')
+error: Cannot read properties of null (reading 'stock')
+error: Cannot read properties of null (reading 'stock')
+error: Cannot read properties of null (reading 'stock')
+error: wait is not defined
+error: wait is not defined
+error: Cannot set headers after they are sent to the client
+error: ENOENT: no such file or directory, open 'D:\Codigo\cursoBackend\desafio\ProyectoFinal\src\json\user.json'
+error: ENOENT: no such file or directory, open 'D:\Codigo\cursoBackend\desafio\ProyectoFinal\src\json\user.json'
+error: Error en la creación del poducto, uno o mas campos se encuentran vacios
+error: Error en la creación del poducto, uno o mas campos se encuentran vacios
+error: undefined {"code":2,"name":"Error de creación de producto"}
+error: undefined {"code":2,"name":"Error de creación de producto"}
+error: Cannot read properties of undefined (reading 'forEach')
+error: Cannot read properties of undefined (reading 'forEach')
+error: fields.forEach is not a function
+error: fields.forEach is not a function
+error: array is not defined
+error: result is not defined
+error: array is not defined
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot read properties of undefined (reading 'isValid')
+error: Cannot set properties of undefined (setting 'id')
+error: undefined
+error: undefined
+error: undefined
+error: undefined
+error: Assignment to constant variable.
+error: Mail.send is not a function
+error: Cannot read properties of undefined (reading 'code')
+error: Mail.send is not a constructor
+error: Cannot read properties of undefined (reading 'code')
+error: Error en la creación del poducto, uno o mas campos se encuentran vacios
+error: product is not defined
+error: product is not defined
+error: product is not defined
+error: result is not defined
+error: Cannot read properties of undefined (reading 'products')
+error: Cannot read properties of undefined (reading 'products')
+error: Cannot read properties of undefined (reading 'products')
+error: user is not defined
+error: user is not defined
+error: user is not defined
+error: user is not defined
+error: user is not defined
+error: user is not defined
+error: user is not defined
+error: user is not defined
+error: user is not defined
+error: Cannot read properties of undefined (reading 'products')
+error: req is not defined
+error: req is not defined
+error: html.append is not a function
+error: Assignment to constant variable.

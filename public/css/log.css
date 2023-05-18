@@ -16,6 +16,9 @@
 .text-whitesmoke {
     color: whitesmoke
 }
+.text-whitesmoke-b {
+    color: #BDBDBD;
+}
 .text-darkyellow {
     color: rgba(255, 235, 59, 0.432)
 }
@@ -216,4 +219,35 @@ a.text-darkyellow:hover{
     border-radius: 0;
     margin: 5% auto;
     width: 100% !important;
+}
+
+.w{
+    width: 80px;
+}
+
+.p{
+    padding: 0px;
+}
+
+.css-1huyebr {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: auto;
+    margin: auto;
+}
+.css-1huyebr::before, .css-1huyebr::after {
+    content: "";
+    flex: 0 1 100%;
+    border-bottom: 0.5px solid #FFEB3B;
+    margin: 0px 10px;
+    transform: translateY(-50%);
+}
+
+.error{
+    color: red;
+    font-style: italic;
+    font-size: smaller;
+    text-align: left;
+    float: left;
 }

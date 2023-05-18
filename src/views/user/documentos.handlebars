@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row justify-content-center ff">
+        <div class="col-auto">
+    <h1>Subir documentos</h1>
+    <label id="id" hidden>{{user.id}}</label>
+    <hr style="margin-top: 40px;">
+    <form class="row g-3" id="formDocs">       
+        <div class="col-md-6">
+            <label for="domicilio">Identificación</label>
+        </div>    
+        <div class="col-12">
+            <input class="form-control" type='file' name='identificacion'/>
+        </div>
+        <div class="col-md-6">
+            <label for="domicilio">Comprobante de Domicilio</label>
+        </div>    
+        <div class="col-12">
+            <input class="form-control" type='file' name='domicilio'/>
+        </div>  
+        <div class="col-md-6">
+            <label for="estadoCuenta">Estado de Cuenta</label>
+        </div>
+        <div class="col-12">
+            <input class="form-control" type='file' name='estadoCuenta'/>
+        </div> 
+        <hr style="margin-top: 20px;">     
+        <div >
+            <button type="submit" class="btn btn-dark">Confirmar</button>
+        </div>
+    </form>
+    </div>
+    </div>
+</div>
+<style>
+.ff{
+    margin: 100px auto;
+    width: 75%;
+    background-color: #e9ecef;
+    padding: 30px;
+
+}
+</style>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/users.js"></script>
