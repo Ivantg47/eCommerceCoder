@@ -7,7 +7,7 @@ import config from "../../config/config.js";
 export default class CartRouter extends MiRouter {
 
     init () {
-        this.get('/', ["ADMIN", "PUBLIC"], async (req, res, next) => {
+        this.get('/', ["ADMIN"], async (req, res, next) => {
             try {
                 const cart = await CartService.getCarts()
 
@@ -17,7 +17,7 @@ export default class CartRouter extends MiRouter {
             }
         })
 
-        this.get('/:cid', ["USER", "ADMIN", "PREMIUM"], async (req, res, next) => {
+        this.get('/:cid', ["USER", "PREMIUM"], async (req, res, next) => {
             try {
                 const { cid } = req.params
                 const cart = await CartService.getCartById(cid)
@@ -54,7 +54,7 @@ export default class CartRouter extends MiRouter {
             }
         })
 
-        this.put('/:cid', ["USER", "PREMIUM", "ADMIN"], async (req, res, next) => {
+        this.put('/:cid', ["USER", "PREMIUM"], async (req, res, next) => {
             try {
                 const { cid } = req.params
                 const cart = await CartService.updateCart(cid, req.body)

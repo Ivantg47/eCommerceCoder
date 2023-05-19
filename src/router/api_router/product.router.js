@@ -30,7 +30,8 @@ export default class ProductRouter extends MiRouter {
 
             } catch (error) {
                 console.error(error);
-                req.logger.error(error.message);
+                logger.error(error.message);
+                return next()
             }
         })
 
@@ -42,11 +43,13 @@ export default class ProductRouter extends MiRouter {
                 return res.status(prod.code).send(prod.result)
 
             } catch (error) {
-                req.logger.error(error.message);
+                console.error(error);
+                logger.error(error.message);
+                return next()
             }
         })
 
-        this.post('/', ["ADMIN", "PREMIUM", "PUBLIC"], uploader.array('thumbnail'), async (req, res, next) => {
+        this.post('/', ["ADMIN", "PREMIUM"], uploader.array('thumbnail'), async (req, res, next) => {
             try {
                 
                 const product = req.body
@@ -65,6 +68,7 @@ export default class ProductRouter extends MiRouter {
                 // req.logger.error(error);
                 //res.status(500).send({status: "Error", message: error.message , payload: error})
                 console.error(error);
+                logger.error(error.message);
                 return next()
             }
         })
@@ -86,12 +90,13 @@ export default class ProductRouter extends MiRouter {
                 return res.status(prod.code).send(prod.result)
         
             } catch (error) {
-                req.logger.error(error.message);
-                //return next()
+                console.error(error);
+                logger.error(error.message);
+                return next()
             }
         })
         
-        this.delete('/:pid', ["ADMIN", "PREMIUM", "PUBLIC"], async (req, res, next) => {
+        this.delete('/:pid', ["ADMIN", "PREMIUM"], async (req, res, next) => {
             try {
 
                 const { pid } = req.params
@@ -109,8 +114,8 @@ export default class ProductRouter extends MiRouter {
                 
             } catch (error) {
                 console.error(error);
-                req.logger.error(error.message);
-                //return next()
+                logger.error(error.message);
+                return next()
             }
         })
     }

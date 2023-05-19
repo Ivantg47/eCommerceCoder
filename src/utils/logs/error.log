@@ -195,3 +195,12 @@ error: req is not defined
 error: req is not defined
 error: html.append is not a function
 error: Assignment to constant variable.
+error: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+error: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+error: filter is not defined
+error: filter is not defined
+error: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+error: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+error: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+error: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+error: pagination is not defined

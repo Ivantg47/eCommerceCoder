@@ -25,36 +25,44 @@ export default class SessionRouter extends MiRouter {
         
         })
         
-        this.post('/login', ["PUBLIC"], passport.authenticate('login', {failureRedirect: '/session/faillogin'}), (req, res) => {
+        this.post('/login', ["PUBLIC"], passport.authenticate('login', {failureRedirect: '/session/faillogin'}), (req, res, next) => {
             try {
                 
                 if (!req.user) {
-                    return res.status(401).render('error/general', {error: 'Correo incorrecto'})
+                    return res.status(401).render('error/general', {error: 'Correo incorrecto', title: 'Error'})
                 }
         
                 req.session.user = req.user
         
-                res.cookie(config.COOKIE_NAME_JWT, req.user.token).redirect('/products')
+                res.cookie(config.COOKIE_NAME_JWT, req.user.token).redirect('/')
                     
             } catch (error) {
                 req.logger.error(error.message);
+                console.error(error);
                 return next()
             }
         })
         
         this.get('/github', ["PUBLIC"], passport.authenticate('github', {scope:['user:email']}), async(req, res) => {})
         
-        this.get('/githubcallback', ["PUBLIC"],  passport.authenticate('github', {failureRedirect: '/session/login'}), async(req, res) => {
-            req.session.user = req.user
-            res.redirect('/product')
+        this.get('/githubcallback', ["PUBLIC"],  passport.authenticate('github', {failureRedirect: '/session/login'}), async(req, res, next) => {
+            try {
+                req.session.user = req.user
+                res.redirect('/')
+                
+            } catch (error) {
+                req.logger.error(error.message);
+                console.error(error);
+                return next()
+            }
         })
         
         this.get('/faillogin', ["PUBLIC"], (req, res) => {
-            res.render('error/general',{error: 'Failed login'})
+            res.render('error/general',{error: 'Failed login', title: 'Error'})
         })
         
         this.get('/failregister', ["PUBLIC"], (req, res) => {
-            res.render('error/general',{error: 'Failed to register'})
+            res.render('error/general',{error: 'Failed to register', title: 'Error'})
         })
         
         //<<<<<<<<<<<<<<<<<<<<<<<<<< cerrar sesion >>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -72,6 +80,7 @@ export default class SessionRouter extends MiRouter {
         
             } catch (error) {
                 req.logger.error(error.message);
+                console.error(error);
                 return next()
             }
         })

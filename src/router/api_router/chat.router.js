@@ -5,7 +5,7 @@ export default class ChatRouter extends MiRouter {
 
     init () {
 
-        this.get('/', ["USER"], async (req, res, next) => {
+        this.get('/', ["USER", "PREMIUM"], async (req, res, next) => {
             try {
                 
                 const messages = await ChatService.getMessages()
@@ -20,7 +20,7 @@ export default class ChatRouter extends MiRouter {
             }
         })
 
-        this.post('/', ["USER"], async (req, res, next) => {
+        this.post('/', ["USER", "PREMIUM"], async (req, res, next) => {
             try {
                 
                 let mensaje = req.body

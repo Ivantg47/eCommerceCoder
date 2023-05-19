@@ -11,7 +11,7 @@ socket.on('lista', lista => {
         lProducts = lista.result.payload.map(prod => 
             `<tr>
                 <td style="display:none">${prod._id}</td>
-                <td><img src="${prod.thumbnail[0]}" alt="No image" width="72" height="72" style="vertical-align:middle; object-fit: contain;"></td>
+                <td><img src="${prod.thumbnail[0]}" width="72" height="72" style="vertical-align:middle; object-fit: contain;"></td>
                 <td>${prod.title}</td>
                 <td>${prod.description}</td>
                 <td align="right">${prod.price = new Intl.NumberFormat('es-MX',{ style: 'currency', currency: 'MXN' }).format(prod.price)}</td>

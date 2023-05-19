@@ -147,9 +147,9 @@ export default class UserRouter extends MiRouter {
         this.delete('/:uid', ["ADMIN"], async (req, res) => {
             try {
                 const { uid } = req.params
-                console.log('premiun: ', uid);
+                
                 const result = await UserService.deleteUser(uid)
-                logger.debug(result)
+                
                 return res.status(result.code).send(result.result)
 
             } catch (error) {

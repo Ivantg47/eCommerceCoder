@@ -1,14 +1,24 @@
-<link rel="stylesheet" href="/css/estilo.css">
-
-<section class="py-5">
+<section >
     <div class="container px-4 px-lg-5 mt-5">
+    <!--<form action="/">
+            <div class="input-group mb-3">
+                <select class="form-select" name="category" id="quantity" style="
+                width: 50px; background-color: #e9ecef">
+                        <option value="" selected disabled hidden>Category</option>
+                        <option value="Juegos">Juegos</option>
+                        <option value="Manga">Manga</option>
+                    </select>
+                <input type="text" class="form-control" placeholder="nombre" name="query" value="{{query}}" style="width: 80%;">
+                <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
+            </div>
+        </form>-->
     {{#if prod.isValid}}
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-5 justify-content-center">
             {{#each prod.payload}}
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Product image-->
-                    <img class="card-img-top" src="{{this.thumbnail.[0]}}" alt="..." style="padding: 5px;"/>
+                    <img class="card-img-top" src="{{this.thumbnail.[0]}}" style="padding: 5px;"/>
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">

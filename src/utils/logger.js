@@ -26,7 +26,7 @@ const myFormat = winston.format.printf( (info) => {
     
     if(info instanceof Error) {
        console.log("err");
-        return `${info.level}: ${info.message}`;
+        return `${info.level}: [${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}] ${info.message}`;
     }
 
     if(typeof info.message == 'object') {
@@ -34,7 +34,7 @@ const myFormat = winston.format.printf( (info) => {
         info.message = JSON.stringify(info.message, null, 3)
     }
     
-    let msg = `${info.level} : ${info.message} ` 
+    let msg = `${info.level} : [${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}] ${info.message}` 
     return msg
 });
 
@@ -83,39 +83,9 @@ const logger = config.MODE == "DEV" ? devLog : prodLog
 
 export const addLogger = (req, res, next) => {
     req.logger = logger
-    req.logger.info(`${req.method} en ${req.url} - ${new Date().toLocaleTimeString()}`)
+    req.logger.info(`${req.method} en ${req.url}`)
 
     next()
 }
 
 export default logger
-
-// const logFormat = format.printf(info => `${info.timestamp} ${info.level} [${info.label}]: ${info.message}`)
-
-// const logger = winston.createLogger({
-//   level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
-//   format: format.combine(
-//     format.label({ label: path.basename(process.mainModule.filename) }),
-//     format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-//     // Format the metadata object
-//     format.metadata({ fillExcept: ['message', 'level', 'timestamp', 'label'] })
-//   ),
-//   transports: [
-//     new transports.Console({
-//       format: format.combine(
-//         format.colorize(),
-//         logFormat
-//       )
-//     }),
-//     new transports.File({
-//       filename: 'logs/combined.log',
-//       format: format.combine(
-//         // Render in one line in your log file.
-//         // If you use prettyPrint() here it will be really
-//         // difficult to exploit your logs files afterwards.
-//         format.json()
-//       )
-//     })
-//   ],
-//   exitOnError: false
-// })

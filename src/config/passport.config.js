@@ -39,7 +39,7 @@ const initializePassport = () => {
         async (accessToken, refreshToken, profile, done) => {
             
             try {
-                
+                logger.debug("git")
                 let user = await UserService.getUserByEmail(profile._json.email)
                 if (!user) {
                     let newUser = {
