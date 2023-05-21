@@ -4,6 +4,7 @@ import config from "../../config/config.js";
 import { authToken, authTokenUser, createHash, generateTokenUser, isValidPassword } from "../../utils.js";
 import { UserService } from "../../repositories/index_repository.js";
 import logger from "../../utils/logger.js";
+import { forgot } from "../../modules/html.js";
 
 export default class SessionRouter extends MiRouter {
     init () {
@@ -17,6 +18,7 @@ export default class SessionRouter extends MiRouter {
         this.post('/register', ["PUBLIC"], passport.authenticate('register', {failureRedirect: '/session/failregister'}), async (req, res, next) => {
             
             res.redirect('/session/login')
+
         })
 
         this.get('/login', ["PUBLIC"], async (req, res) => {
@@ -62,6 +64,7 @@ export default class SessionRouter extends MiRouter {
         })
         
         this.get('/failregister', ["PUBLIC"], (req, res) => {
+
             res.render('error/general',{error: 'Failed to register', title: 'Error'})
         })
         
@@ -97,73 +100,25 @@ export default class SessionRouter extends MiRouter {
                 const {email} = req.body
                 
                 const result = await UserService.getUserByEmail(email)
-                //const result = await userModel.findOneAndUpdate({email: email, method: 'local'}, {'$set': {password: createHash(password)}})
-                logger.debug(JSON.stringify(result))
+                
                 if (!result) {
                     res.render('session/olvido', {title: 'Recuperar Contrasseña', error: true})
                 } else {
                     const secret = config.JWT_PRIVATE_KEY + result.password
-                    req.logger.debug('secret: ', secret)
+                    
                     const payload = {
                         id: result.id || result._id,
                         email: result.email
                     }
 
                     const token = generateTokenUser(payload, secret)
-                    const link = `http://127.0.0.1:8080/session/restor-password/${payload.id}/${token}`
-
-                    let html = `<h1>Recuperación de contraseña</h1>
-                    <p>Apreciado cliente,
-                    <br>
-                    Recientemente se a solicitado restablecer la contraseña para acceder a su cuenta. Si usted no lo ha solicitado, por favor ignore este mensaje. Caducara en 1 hora.
-                    <br><br>
-                    <b>Para restablecer su contraseña, por favor visite el siguiente URL:</b>
-                    <br><br>
-                    <a href="${link}" class="form-button button">Restaurar contraseña</a>
-                    <a href="${link}">${link}</a>
-                    <br><br>
-                    Cundo visite este enlace, tendrá la oportunidad de elegir una nueva contraseña.
-                    <br><br>
-                    Para cualquier duda estamos a su disposición.
-                    <br><br>
-                    Atentamente,
-                    <br><br><br>
-                    Equipo de Ecommerce
-                    </p>
-                    <style>
-                    .button {
-                        display: block;
-                        width: 200px;
-                        height: 22px;
-                        background: rgba(255, 235, 59);;
-                        padding: 10px;
-                        text-align: center;
-                        border-radius: 5px;
-                        color: black;
-                        font-weight: bold;
-                        line-height: 25px;
-                        text-decoration: none;
-                        margin: 25px;
-                    }
-                    .form-button:hover,
-                    .form-button:focus,
-                    .form-button:active,
-                    .form-button.active,
-                    .form-button:active:focus,
-                    .form-button:active:hover,
-                    .form-button.active:hover,
-                    .form-button.active:focus {
-                        background-color: rgba(255, 235, 59, 0.473);
-                        border-color: rgba(255, 235, 59, 0.473);
-                    }
-                    </style>`
+                    const link = `${config.PRINCIPAL_URL}/session/restor-password/${payload.id}/${token}`
 
                     const subject = 'Recuperación de contraseña'
-                    UserService.sendMail(email, html, subject)
+                    UserService.sendMail(email, forgot(link), subject)
                     
                     res.render('error/general', {title: 'Recuperar Contrasseña', error: 'Correo enviado...'})
-                    //res.send('Correo enviado...')
-                    //setTimeout(res.redirect("/session/login"), 5000)
+                    
                 }
         
             } catch (error) {

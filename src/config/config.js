@@ -32,6 +32,7 @@ export default {
     MODE: program.opts().mode,
     USER_GMAIL: process.env.USER_GMAIL,
     PASS_GMAIL: process.env.PASS_GMAIL,
+    PRINCIPAL_URL: process.env.PRINCIPAL_URL,
     firebaseConfig: {
         apiKey: process.env.API_KEY,
         authDomain: process.env.AUTH_DOMAIN,

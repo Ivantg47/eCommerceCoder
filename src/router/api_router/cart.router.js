@@ -126,6 +126,8 @@ export default class CartRouter extends MiRouter {
                 
                 if (cart.code == 200) {
                     
+                    cart.result.payload.code2 = cart.result.payload.code
+                    cart.result.payload.amount2 = cart.result.payload.amount
                     return res.status(cart.code).render('cart/compra', {title: 'Confirmación de Compra', user: user, ticket: cart.result.payload})
                     
                 }

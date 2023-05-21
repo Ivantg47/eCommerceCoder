@@ -104,7 +104,7 @@ export default class ProductViewRouter extends MiRouter {
             
         })
 
-        this.get('/product/register', ["ADMIN", "PREMIUM", "PUBLIC"], async (req, res) => {
+        this.get('/product/register', ["ADMIN", "PREMIUM"], async (req, res) => {
             try {
                 
                 res.render('product/registerProd', {title: 'Registrar nuevo producto', user: req.session?.user || req.user})
