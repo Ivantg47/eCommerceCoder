@@ -62,8 +62,8 @@ export default class ProductViewRouter extends MiRouter {
                 const index = []
     
                 if (prod.isValid) {
-                    prod.prevLink = prod.hasPrevPage ? `/products?page=${prod.prevPage}` : ''
-                    prod.nextLink = prod.hasNextPage ? `/products?page=${prod.nextPage}` : ''
+                    prod.prevLink = prod.hasPrevPage ? `/?page=${prod.prevPage}` : ''
+                    prod.nextLink = prod.hasNextPage ? `/?page=${prod.nextPage}` : ''
                     prod.payload.forEach(prod => prod.price = new Intl.NumberFormat('es-MX',
                     { style: 'currency', currency: 'MXN' }).format(prod.price))
             
