@@ -32,6 +32,7 @@
                         </ul>
                     </li>
                 </ul>
+<!--
                 <span id="user" style="color: white; margin-right: 10px;"></span>
                 
                 <div>
@@ -44,6 +45,26 @@
                         <span id="prods" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                     </button>
                 </form>
+-->
+                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Identificate</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class=" mx-auto"><a id="logbt" class="dropdown-item" href="/session/login" style="border: 1px solid transparent;">Identificate</a></li> 
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="/users/profile/documents">Documentos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <form id="cart" class="d-flex">
+                            <button class="btn btn-outline-light" type="submit" style="border: 1px solid transparent;">
+                                <i class="bi-cart-fill me-1 my-auto"></i>
+                                Cart
+                                <span id="prods" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            </button>
+                        </form>
+                    </li>
+                </ul>
                 {{#if user}}
                 <script>
                     document.getElementById('user').innerHTML = "Hola, {{user.first_name}} {{user.last_name}} <br><small>Role: {{user.role}}</small>"

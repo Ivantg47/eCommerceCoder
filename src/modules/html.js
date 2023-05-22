@@ -37,7 +37,7 @@ export const head = (cliente, ticket, fecha) => {return `<html>
                                   </tr>
                                 </tbody>
                               </table>
-                              <img class="w-16" src="/public/img/logo.png" style="height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; width: 64px; border-style: none; border-width: 0;" width="64">
+                              <img class="w-16" src="https://firebasestorage.googleapis.com/v0/b/ecommerce-cc190.appspot.com/o/img%2Flogo.png?alt=media&token=e74dc802-40f7-4885-bdaa-47bbb261a2d4" style="height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; width: 64px; border-style: none; border-width: 0;" width="64">
                               <table class="s-6 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
                                 <tbody>
                                   <tr>

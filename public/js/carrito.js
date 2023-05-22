@@ -16,7 +16,7 @@ addProduct = async (cid, pid) => {
 
 deleteProduct = async (pid) => {
     //console.log('add', pid);
-    const cid = document.getElementById('cart').innerText
+    const cid = document.getElementById('cartid').innerText
     //console.log(cid);
     const response = await fetch(`/api/carts/${cid}/product/${pid}`, {method: 'DELETE'})
     
