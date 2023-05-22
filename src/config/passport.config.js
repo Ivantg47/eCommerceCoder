@@ -6,6 +6,7 @@ import { createHash, extractCookie, generateToken, isValidPassword } from '../ut
 import config from './config.js'
 import { UserService } from '../repositories/index_repository.js'
 import logger from '../utils/logger.js'
+import UserDTO from '../DTO/user.dto.js'
 
 const LocalStrategy = local.Strategy
 const JWTStrategy = jwt.Strategy
@@ -39,7 +40,7 @@ const initializePassport = () => {
         async (accessToken, refreshToken, profile, done) => {
             
             try {
-                
+                logger.debug("git")
                 let user = await UserService.getUserByEmail(profile._json.email)
                 if (!user) {
                     let newUser = {
@@ -68,26 +69,28 @@ const initializePassport = () => {
             passReqToCallback: true, usernameField: 'email'
         },
         async (req, username, password, done) => {
-            const {first_name, last_name, email, role} =  req.body //req.query
+            const {first_name, last_name, email, role, age} =  req.body //req.query
             
             try {
             
                 const user = await UserService.getUserByEmail(username)
                 
-                if (user) {
+                if (user.code != 404) {
                     
                     return done(null, false)
+
                 }
 
-                const newUser = {
+                const newUser = new UserDTO({
                     first_name, 
                     last_name, 
                     email,
                     password: createHash(password),
                     role,
+                    age,
                     method: 'LOCAL'
-                }
-                
+                })
+        
                 let result = await UserService.addUser(newUser)
                 
                 return done(null, result)

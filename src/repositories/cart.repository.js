@@ -2,6 +2,7 @@ import CartDTO from '../DTO/cart.dto.js'
 import { ProductService, TicketService } from "./index_repository.js"
 import logger from '../utils/logger.js'
 import Mail from '../modules/mail.js'
+import { body, foot, head } from '../modules/html.js'
 
 export default class CartRepository {
 
@@ -221,7 +222,7 @@ export default class CartRepository {
                     return false
 
                 } else {
-                    cart.push({product: prod.product.id || prod.product._id, quantity: prod.quantity})
+                    cart.push({product: prod.product.id || prod.product._id, quantity: prod.quantity, title: prod.product.title})
                     return true
                 }
             })
@@ -237,52 +238,25 @@ export default class CartRepository {
                 generateTicket.amount = new Intl.NumberFormat('es-MX',
                         { style: 'currency', currency: 'MXN' }).format(generateTicket.amount)
                 generateTicket.products = prods
-
-                let html = `<body>
-                                <h1>Confirmación de Compra</h1>
-                                <p>Estimado/a ${usernanme.first_name} ${usernanme.first_name},</p>
-                                <p>Le informamos que hemos recibido su pedido y lo estamos procesando. A continuación se detallan los productos adquiridos:</p>
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Producto</th>
-                                            <th>Cantidad</th>
-                                            <th>Precio Unitario</th>
-                                            <th>Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>`
+                
+                let html = head(`${usernanme.first_name} ${usernanme.first_name}`, generateTicket.code, generateTicket.purchase_datetime.toLocaleDateString())
 
                 prods.forEach(prod => {
                     
-                    html = html.concat(`<tr>
-                                    <td>${prod.title}</td>
-                                    <td>${prod.quantity}</td>
-                                    <td>${new Intl.NumberFormat('es-MX',
-                                        { style: 'currency', currency: 'MXN' }).format(prod.price)}</td>
-                                    <td>${new Intl.NumberFormat('es-MX',
-                                        { style: 'currency', currency: 'MXN' }).format(prod.price * prod.quantity)}</td>
-                                </tr>`)
+                    html = html.concat(body(prod.title, prod.quantity, 
+                                            new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(prod.price), 
+                                            new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(prod.price * prod.quantity)
+                                            )
+                                        )
 
                 });
                     
-                html = html.concat(`</tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="3">Total:</td>
-                                            <td>${generateTicket.amount}</td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                                <p>Gracias por confiar en nuestra tienda en línea. Si tiene alguna pregunta o problema con su pedido, no dude en ponerse en contacto con nuestro equipo de soporte.</p>
-                                <p>Atentamente,</p>
-                                <p>El equipo de eCommers</p>
-                            </body>`)
+                html = html.concat(foot(generateTicket.amount))
 
                 const mail = new Mail()
                 
                 mail.send(usernanme.email, "Confirmación de Compra", html)
-
+                
                 if (data.products.length === 0) {
                     return {code: 200, result: {status: "success", message: 'Compra realizada', payload: generateTicket} }
                 }

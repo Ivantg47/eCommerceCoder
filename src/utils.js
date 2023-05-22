@@ -33,10 +33,10 @@ export const authToken = (req, res, next) => {
     
     const authToken = req.cookies[config.COOKIE_NAME_JWT]
     
-    if(!authToken) return res.status(401).render('error/general', {error: "Not Auth"})
+    if(!authToken) return res.status(401).render('error/general', {error: "Not Auth", title: 'Error'})
 
     jwt.verify(authToken, config.JWT_PRIVATE_KEY, (error, config) => {
-        if(error) return res.status(403).render('error/general', {error: 'Not authorized'})
+        if(error) return res.status(403).render('error/general', {error: 'Not authorized', title: 'Error'})
         req.user = config.user
         next()
     })
@@ -48,7 +48,8 @@ export const passportCall = (strategy) => {
             if (err) return next(err)
             if (!user) {
                 return res.status(401).render('error/general',{
-                    error: info.messages ? info.messages : info.toString()
+                    error: info.messages ? info.messages : info.toString(),
+                    title: 'Error'
                 })
             }
             req.user = user

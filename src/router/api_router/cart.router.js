@@ -7,7 +7,7 @@ import config from "../../config/config.js";
 export default class CartRouter extends MiRouter {
 
     init () {
-        this.get('/', ["ADMIN", "PUBLIC"], async (req, res, next) => {
+        this.get('/', ["ADMIN"], async (req, res, next) => {
             try {
                 const cart = await CartService.getCarts()
 
@@ -17,7 +17,7 @@ export default class CartRouter extends MiRouter {
             }
         })
 
-        this.get('/:cid', ["USER", "ADMIN", "PREMIUM"], async (req, res, next) => {
+        this.get('/:cid', ["USER", "PREMIUM"], async (req, res, next) => {
             try {
                 const { cid } = req.params
                 const cart = await CartService.getCartById(cid)
@@ -54,7 +54,7 @@ export default class CartRouter extends MiRouter {
             }
         })
 
-        this.put('/:cid', ["USER", "PREMIUM", "ADMIN"], async (req, res, next) => {
+        this.put('/:cid', ["USER", "PREMIUM"], async (req, res, next) => {
             try {
                 const { cid } = req.params
                 const cart = await CartService.updateCart(cid, req.body)
@@ -126,11 +126,17 @@ export default class CartRouter extends MiRouter {
                 
                 if (cart.code == 200) {
                     
-                    return res.status(cart.code).render('cart/compra', {title: 'Confirmación de Compra', user: user, ticket: cart.result.payload})
+                    cart.result.payload.code2 = cart.result.payload.code
+                    cart.result.payload.amount2 = cart.result.payload.amount
+
+                    if (cart.result.status == "success") {  
+                        return res.status(cart.code).render('cart/compra', {title: 'Confirmación de Compra', user: user, ticket: cart.result.payload})
+                    }
+
+                    return res.status(cart.code).render('cart/compra', {title: 'Confirmación de Compra', user: user, ticket: cart.result.payload, cart: cart.result.cart})
                     
                 }
-
-                return res.sendServerError(cart.result.error)
+                return res.status(cart.code).render('error/general', {title: 'Confirmación de Compra', user: user, error: "Los artículos seleccionados, ya no se encuentran disponibles"})
 
             } catch (error) {
                 req.logger.error(error.message);

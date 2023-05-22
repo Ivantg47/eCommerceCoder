@@ -6,7 +6,7 @@ export default class UserViewRouter extends MiRouter {
 
     init () {
 
-        this.get('/profile/documents', ["PUBLIC"], async (req, res) => {
+        this.get('/profile/documents', ["USER", "PREMIUM"], async (req, res) => {
             try {
                 const user = req.session?.user || req.user
                 user.id = user?._id
@@ -18,7 +18,7 @@ export default class UserViewRouter extends MiRouter {
             }
         })
 
-        this.get('/', ["PUBLIC"], async (req, res) => {
+        this.get('/', ["ADMIN"], async (req, res) => {
             try {
                 const user = req.session?.user || req.user
                 user.id = user?._id

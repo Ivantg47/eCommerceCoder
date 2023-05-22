@@ -6,6 +6,8 @@ addProduct = async (cid, pid) => {
         alert('Producto añadido')
     } else if (response.status == 401){
         alert(response.statusText)
+    } else if (response.status == 404){
+        window.location.replace("/session/login");
     } else {
         alert('Error al añadir')
     }
@@ -14,16 +16,17 @@ addProduct = async (cid, pid) => {
 
 deleteProduct = async (pid) => {
     //console.log('add', pid);
-    const cid = document.getElementById('cart').innerText
+    const cid = document.getElementById('cartid').innerText
     //console.log(cid);
     const response = await fetch(`/api/carts/${cid}/product/${pid}`, {method: 'DELETE'})
-    console.log(response);
     
     if (response.status == 200) {
         alert('Producto eliminado')
         window.location.reload();
     } else if (response.status == 401){
         alert(response.statusText)
+    } else if (response.status == 404){
+        window.location.replace("/session/login");
     } else {
         alert('Error al eliminar')
     }
@@ -40,7 +43,7 @@ addProducts = async (cid, pid) => {
         body[field[0]] = field[1];
     }
 
-    //console.log(body);
+    //console.log("cart:", cid, " prod: ", pid);
 
     const response = await fetch(`/api/carts/${cid}/product/${pid}`, {
         body: JSON.stringify(body),
@@ -54,12 +57,10 @@ addProducts = async (cid, pid) => {
         alert('Producto añadido')
     } else if (response.status == 401){
         alert(response.statusText)
-    }else {
+    } else if (response.status == 404){
+        window.location.replace("/session/login");
+    } else {
         alert('Error al añadir')
     }
     
 }
-
-
-
-//btn btn-outline-dark mt-auto

@@ -45,16 +45,17 @@ export default class MiRouter {
 
     generateCustomResponses = (req, res, next) => {
         res.sendSuccess = payload => res.status(200).send({status: "success", payload})
-        res.sendServerError = error => res.status(500).render('error/general', {error: error})
-        res.sendUserError = error => res.status(400).render('error/general', {error: error})
-        res.sendNoAuthenticatedError = error => res.status(401).render('error/general', {error: error})
-        res.sendNoAuthorizatedError = error => res.status(403).render('error/general', {error: error})
-        res.sendNoFoundError = error => res.status(404).render('error/general', {error: error})
+        res.sendServerError = error => res.status(500).render('error/general', {error: error, title: 'Error'})
+        res.sendUserError = error => res.status(400).render('error/general', {error: error, title: 'Error'})
+        res.sendNoAuthenticatedError = error => res.status(401).render('error/general', {error: error, title: 'Error'})
+        res.sendNoAuthorizatedError = error => res.status(403).render('error/general', {error: error, title: 'Error'})
+        res.sendNoFoundError = error => res.status(404).render('error/general', {error: error, title: 'Error'})
 
         next()
     }
 
     handlePolicies = policies => (req, res, next) => {
+        
         if (policies.includes('PUBLIC')) return next()
 
         if (policies.includes('USER') || policies.includes('ADMIN') || policies.includes('PREMIUM')) {

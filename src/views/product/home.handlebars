@@ -4,7 +4,7 @@
             <div class="mask d-flex align-items-center h-100">
                 <div class="container">
                     <h1>Products List</h1>
-                    <form action="/">
+                    <!--<form action="/">
                         <div class="input-group mb-3">
                             <select class="form-select" name="category" id="quantity" style="
                             width: 50px; background-color: #e9ecef">
@@ -15,56 +15,39 @@
                             <input type="text" class="form-control" placeholder="nombre" name="query" value="{{query}}" style="width: 80%;">
                             <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
                         </div>
-                    </form>
+                    </form>-->
                     <div class="row justify-content-center">
                         <div class="col-12">
                             <div class="card shadow-2-strong">
                                 <div class="card-body p-0">
                                     {{#if prod.isValid}}
-                                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 800px">
                                         <table class="table table-striped table-bordered table-sm" cellspacing="0" style="width:100%">
                                             <tr class="text-uppercase text-success">
                                                 <th scope="col" style="display:none">ID</th>
-                                                <th scope="col">Title</th>
+                                                <th width="150" scope="col">Title</th>
                                                 <th scope="col">Description</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Image</th>
-                                                <th scope="col">Code</th>
-                                                <th scope="col">Stock</th>
-                                                <th scope="col">Category</th>
-                                                <th scope="col">Status</th>
+                                                <th width="100" scope="col">Price</th>
+                                                <th width="85" scope="col">Image</th>
+                                                <th width="100" scope="col">Code</th>
+                                                <th width="90" scope="col">Stock</th>
+                                                <th width="100" scope="col">Category</th>
                                             </tr>
                                             <tbody>
                                             {{#each prod.payload}}
-                                                <tr class="alert">
+                                                <tr>
                                                     <td style="display:none">{{this._id}}</td>
                                                     <td>{{this.title}}</td>
                                                     <td>{{this.description}}</td>
-                                                    <td>{{this.price}}</td>
-                                                    <td><img src="{{this.thumbnail.[0]}}" alt="No image" width="72" height="72" style="vertical-align:middle"></td>
+                                                    <td class="text-end">{{this.price}}</td>
+                                                    <td><img src="{{this.thumbnail.[0]}}"  width="72" height="72" style="vertical-align:middle"></td>
                                                     <td>{{this.code}}</td>
-                                                    <td>{{this.stock}}</td>
+                                                    <td class="text-end">{{this.stock}}</td>
                                                     <td>{{this.category}}</td>
-                                                    <td>{{this.status}}</td>
                                                 </tr>
                                             {{/each}}
                                             </tbody>
                                         </table>
-                                    </div>
-                                    <div class="row">
-                                        <div class="d-flex justify-content-center">
-                                            {{#if prod.hasPrevPage}}
-                                            <a class="btn btn-outline-dark mt-auto" href="{{prod.prevLink}}"><i class="bi bi-caret-left-fill"></i> Anterior</a>
-                                            {{else}}
-                                            <a class="btn btn-outline-dark mt-auto disabled" ><i class="bi bi-caret-left-fill"></i> Anterior</a>
-                                            {{/if}}
-                                            <a class="btn btn-outline-dark mt-auto disabled">{{ prod.page }}</a>
-                                            {{#if prod.hasNextPage}}
-                                            <a class="btn btn-outline-dark mt-auto" href="{{prod.nextLink}}">Siguiente <i class="bi bi-caret-right-fill"></i></a>
-                                            {{else}}
-                                            <a class="btn btn-outline-dark mt-auto disabled" >Siguiente <i class="bi bi-caret-right-fill"></i></a>
-                                            {{/if}}
-                                        </div>
                                     </div>
                                     {{else}}
                                     <h2>No hay productos disponibles</h2>
@@ -78,37 +61,3 @@
         </div>
     </section>
 </div>
-<style>
-.intro {
-  height: 100%;
-}
-
-table td,
-table th {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.card {
-  border-radius: .5rem;
-}
-
-.table-scroll {
-  border-radius: .5rem;
-}
-
-.thead {
-  top: 0;
-  position: sticky;
-}
-
-td {
-    vertical-align: middle;
-}
-td img {
-    object-fit: contain;
-}
-</style>
-
-
