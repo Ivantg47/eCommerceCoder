@@ -128,11 +128,15 @@ export default class CartRouter extends MiRouter {
                     
                     cart.result.payload.code2 = cart.result.payload.code
                     cart.result.payload.amount2 = cart.result.payload.amount
-                    return res.status(cart.code).render('cart/compra', {title: 'Confirmación de Compra', user: user, ticket: cart.result.payload})
+
+                    if (cart.result.status == "success") {  
+                        return res.status(cart.code).render('cart/compra', {title: 'Confirmación de Compra', user: user, ticket: cart.result.payload})
+                    }
+
+                    return res.status(cart.code).render('cart/compra', {title: 'Confirmación de Compra', user: user, ticket: cart.result.payload, cart: cart.result.cart})
                     
                 }
-
-                return res.sendServerError(cart.result.error)
+                return res.status(cart.code).render('error/general', {title: 'Confirmación de Compra', user: user, error: "Los artículos seleccionados, ya no se encuentran disponibles"})
 
             } catch (error) {
                 req.logger.error(error.message);

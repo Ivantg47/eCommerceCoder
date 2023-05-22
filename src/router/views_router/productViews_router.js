@@ -94,7 +94,7 @@ export default class ProductViewRouter extends MiRouter {
             
                 prod.price = new Intl.NumberFormat('es-MX',
                 { style: 'currency', currency: 'MXN' }).format(prod.price)
-            
+                prod.id = prod?._id
                 res.render('product/productD', {title: prod.title, data: prod, user: req.session?.user || req.user})
 
             } catch (error) {

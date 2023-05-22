@@ -55,6 +55,7 @@ export default class MiRouter {
     }
 
     handlePolicies = policies => (req, res, next) => {
+        
         if (policies.includes('PUBLIC')) return next()
 
         if (policies.includes('USER') || policies.includes('ADMIN') || policies.includes('PREMIUM')) {

@@ -43,7 +43,7 @@ addProducts = async (cid, pid) => {
         body[field[0]] = field[1];
     }
 
-    //console.log(body);
+    //console.log("cart:", cid, " prod: ", pid);
 
     const response = await fetch(`/api/carts/${cid}/product/${pid}`, {
         body: JSON.stringify(body),

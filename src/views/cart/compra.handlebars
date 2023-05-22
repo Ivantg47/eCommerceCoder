@@ -14,6 +14,16 @@
                 </ul>
                 <p>Total: <strong>{{ticket.amount2}}</strong></p>
                 <br>
+                {{#if cart}}
+                <hr>
+                <br>
+                <p>Los siguientes artículos no pudieron ser procesado por falta de existencias:</p>
+                <ul>
+                    {{#each cart}} 
+                        <li>{{this.product.title}}</li>
+                    {{/each}}
+                </ul>
+                {{/if}}
             </div>
         </div>
     </div>

@@ -222,7 +222,7 @@ export default class CartRepository {
                     return false
 
                 } else {
-                    cart.push({product: prod.product.id || prod.product._id, quantity: prod.quantity})
+                    cart.push({product: prod.product.id || prod.product._id, quantity: prod.quantity, title: prod.product.title})
                     return true
                 }
             })
