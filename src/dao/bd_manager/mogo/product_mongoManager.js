@@ -28,7 +28,7 @@ class ProductMongoManager{
             pagination.lean = true
 
             const data = await productModel.paginate(query, pagination)
-            
+            console.log(data);
             const prods = {
                 isValid: !(data.page <= 0 || data.page>data.totalPages || data.docs.length === 0),
                 totalProds: data.totalDocs,

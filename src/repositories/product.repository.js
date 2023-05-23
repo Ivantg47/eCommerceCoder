@@ -227,4 +227,14 @@ export default class ProductRepository {
         }
     }
 
+    getCategory = async() => {
+        try {
+            const prods = await this.dao.getProducts()
+            const unique = [...new Set(prods.map(prod => prod.category))];
+            return unique
+        } catch (error) {
+            
+        }
+    }
+
 }

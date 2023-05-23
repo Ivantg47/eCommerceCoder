@@ -1,0 +1,9 @@
+error: Parameter "filter" to find() must be an object, got [object Object][object Object][object Object]
+error: Cannot read properties of undefined (reading 'isValid')
+error: Parameter "filter" to find() must be an object, got [object Object][object Object]
+error: Cannot read properties of undefined (reading 'isValid')
+error: Parameter "filter" to find() must be an object, got [object Object][object Object]
+error: Cannot read properties of undefined (reading 'isValid')
+error: Parameter "filter" to find() must be an object, got [object Object][object Object]
+error: Cannot read properties of undefined (reading 'isValid')
+error: query.push is not a function

@@ -49,12 +49,13 @@ export default class ProductViewRouter extends MiRouter {
                     page: parseInt(req.query?.page) || 1,
                     limit: parseInt(req.query?.limit) || 10
                 }
+                
                 const filter = req.query?.query || req.body?.query
-            
-                if(filter) query = {title: {$regex: `/${filter}/i`}}
+                
+                if(filter) query.title = {$regex: `.*${filter}.*`, $options: 'i'}
                 if(req.query.sort) pagination.sort = {price: req.query.sort}
-                if(req.query.category) query = {category: req.query.category}
-                if(req.query.status) query = {status: req.query.status}
+                if(req.query.category) query.category = req.query.category
+                if(req.query.status) query.status = req.query.status
                 
                 let result = await ProductService.getPaginate(query, pagination)
                 
@@ -75,7 +76,7 @@ export default class ProductViewRouter extends MiRouter {
                     }
                 }
                 
-                res.render('product/product', {title: 'Catalogo', prod, query: filter, user: req.session?.user || req.user, pagination: index})
+                res.render('product/product', {title: 'Catalogo', prod, query: filter, user: req.session?.user || req.user, pagination: index, categoria: await ProductService.getCategory()})
 
             } catch (error) {
                 console.error(error);
