@@ -1,4 +1,9 @@
-
-error: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
-error: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
-error: Cannot read properties of null (reading 'price')
+error: Parameter "filter" to find() must be an object, got [object Object][object Object][object Object]
+error: Cannot read properties of undefined (reading 'isValid')
+error: Parameter "filter" to find() must be an object, got [object Object][object Object]
+error: Cannot read properties of undefined (reading 'isValid')
+error: Parameter "filter" to find() must be an object, got [object Object][object Object]
+error: Cannot read properties of undefined (reading 'isValid')
+error: Parameter "filter" to find() must be an object, got [object Object][object Object]
+error: Cannot read properties of undefined (reading 'isValid')
+error: query.push is not a function

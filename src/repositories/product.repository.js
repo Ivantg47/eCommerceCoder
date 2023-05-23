@@ -96,7 +96,7 @@ export default class ProductRepository {
             } else {
                 
                 prod.thumbnail = await Promise.all(files.map(async (file) => {
-                    console.log("ff: ",file);
+                    
                     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E2)
                     const storageRef = ref(storage, `/img/products/${prod.title}-${uniqueSuffix}`)
                     const metadata = { contentType: file.mimetype, name: `${file.fieldname}-${uniqueSuffix}`}
@@ -224,6 +224,16 @@ export default class ProductRepository {
 
             return {code: 500, result: {status: "error", message: error.message, error: error}}
 
+        }
+    }
+
+    getCategory = async() => {
+        try {
+            const prods = await this.dao.getProducts()
+            const unique = [...new Set(prods.map(prod => prod.category))];
+            return unique
+        } catch (error) {
+            
         }
     }
 

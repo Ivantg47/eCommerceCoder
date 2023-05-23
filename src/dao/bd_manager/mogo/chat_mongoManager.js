@@ -5,7 +5,7 @@ class MessageMongoManager{
     getMessages = async () => {
 
         try {
-            console.log('mongo');
+            
             const data = await messageModel.find().lean().exec()
 
             return data

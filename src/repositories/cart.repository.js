@@ -27,8 +27,9 @@ export default class CartRepository {
             return {code: 200, result: {status: "success", payload: result} }
 
         } catch (error) {
-
             logger.error(error.message);
+            console.error(error);
+            return {code: 500, result: {status: "error", error: error.message}}
 
         }
     }
@@ -49,6 +50,7 @@ export default class CartRepository {
 
         } catch (error) {
             logger.error(error.message);
+            console.error(error);
             if (error.name === 'CastError') {
                 return {code: 400, result: {status: "error", error: 'Id invalido'}}
             }
@@ -67,8 +69,9 @@ export default class CartRepository {
             return {code: 200, result: {status: "success", message: 'Carrito creado', payload: result} }
             
         } catch (error) {
-            
-            return {code: 500, result: {status: "error", error: error}}
+            logger.error(error.message);
+            console.error(error);
+            return {code: 500, result: {status: "error", error: error.message}}
 
         }
     }
@@ -86,12 +89,13 @@ export default class CartRepository {
             
 
         } catch (error) {
-            
+            logger.error(error.message);
+            console.error(error);
             if (error.name === 'CastError') {
                 return {code: 400, result: {status: "error", error: 'Id invalido'}}
             }
 
-            return {code: 500, result: {status: "error", error: error}}
+            return {code: 500, result: {status: "error", error: error.message}}
 
         }
     }
@@ -108,6 +112,7 @@ export default class CartRepository {
             
         } catch (error) {
             logger.error(error.message);
+            console.error(error);
             if (error.name === 'CastError') {
                 return {code: 400, result: {status: "error", error: 'Id invalido'}}
             }
@@ -131,6 +136,7 @@ export default class CartRepository {
             
         } catch (error) {
             logger.error(error.message);
+            console.error(error);
             if (error.name === 'CastError') {
                 return {code: 400, result: {status: "error", error: 'Id invalido'}}
             }
@@ -148,10 +154,11 @@ export default class CartRepository {
                 return {code: 404, result: {status: "error", error: 'Not found'}}
             }
 
-            return {code: 200, result: {status: "success", message: 'Producto eliminado'} }
+            return {code: 200, result: {status: "success", message: 'Producto eliminado', payload: result} }
             
         } catch (error) {
-            
+            logger.error(error.message);
+            console.error(error);
             if (error.name === 'CastError') {
                 return {code: 400, result: {status: "error", error: 'Id invalido'}}
             }
@@ -175,6 +182,7 @@ export default class CartRepository {
             
         } catch (error) {
             logger.error(error.message);
+            console.error(error);
             if (error.name === 'CastError') {
                 return {code: 400, result: {status: "error", error: 'Id invalido'}}
             }
@@ -274,8 +282,6 @@ export default class CartRepository {
             return {code: 500, result: {status: "error", error: error.message}}
             
         }
-        
-        
-        
+           
     }
 }

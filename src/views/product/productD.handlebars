@@ -23,7 +23,7 @@
                     <h1>{{data.title}}</h1>
                 </div>
                 <div>
-                    <a href="/product/?category={{data.category}}">Categoría: {{data.category}}</a>
+                    <a href="/?category={{data.category}}">Categoría: {{data.category}}</a>
                     <hr>
                 </div>
                 <div style="margin-bottom: 40px;">
@@ -36,7 +36,7 @@
                     <span style="color: red;"><b>No Disponible</b></span>
                     {{/if}}
                 </div>
-                <form id="addProduct" action="javascript:addProducts('{{user.cart}}','{{data.id}}')">
+                <form id="addProduct" action="javascript:addProducts('{{user.cart.id}}','{{data.id}}')">
                     <div style="margin-bottom: 25px; margin-top: 10px;">
                         <label for="quantity">Cantidad:</label>
                         <select class="dd" name="quantity" id="quantity" style="width: 15%;">

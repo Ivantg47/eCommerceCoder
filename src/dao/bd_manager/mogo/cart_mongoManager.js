@@ -105,9 +105,11 @@ class CartMongoManager{
     deleteProdCart = async(cid, pid) => {
         try{
             
-            const result = await cartModel.findOneAndUpdate({_id: cid, 'products.product': pid}, {'$pull': {products: {product: pid}}}, { upsert: true, returnOriginal: false }).lean().exec()
             
-            return result
+            const result = await cartModel.findOneAndUpdate({_id: cid, 'products.product': pid}, {'$pull': {products: {product: pid}}}).lean().exec()
+            let prod = result.products.find(prod => prod.product == pid)
+            
+            return prod
             
         
         } catch(error) {

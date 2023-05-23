@@ -1,17 +1,18 @@
 <section >
     <div class="container px-4 px-lg-5 mt-5">
-    <!--<form action="/">
+    <form action="/">
             <div class="input-group mb-3">
                 <select class="form-select" name="category" id="quantity" style="
                 width: 50px; background-color: #e9ecef">
                         <option value="" selected disabled hidden>Category</option>
-                        <option value="Juegos">Juegos</option>
-                        <option value="Manga">Manga</option>
+                        {{#each categoria}}
+                        <option value="{{this}}">{{this}}</option>
+                        {{/each}}
                     </select>
                 <input type="text" class="form-control" placeholder="nombre" name="query" value="{{query}}" style="width: 80%;">
                 <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
             </div>
-        </form>-->
+        </form>
     {{#if prod.isValid}}
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-5 justify-content-center">
             {{#each prod.payload}}
@@ -31,7 +32,7 @@
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                         <div class="text-center">
-                            <button class="btn btn-dark" onclick="addProduct('{{../user.cart}}','{{this.id}}')">Add to cart</button>
+                            <button class="btn btn-dark" onclick="addProduct('{{../user.cart.id}}','{{this.id}}')">Add to cart</button>
                         </div>
                     </div>
                 </div>
