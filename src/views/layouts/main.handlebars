@@ -57,8 +57,8 @@
                     document.getElementById('user').innerHTML = "Hola, {{user.first_name}} {{user.last_name}} <br><small>Role: {{user.role}}</small>"
                     document.getElementById('logbt').href = "/session/logout"
                     document.getElementById('logbt').innerHTML = "Salir"
-                    document.getElementById('cart').action = "/carts/{{user.cart}}"
-                    //document.getElementById('prods').innerHTML = {{cart.totalProduct}} || 0
+                    document.getElementById('cart').action = "/carts/{{user.cart.id}}"
+                    document.getElementById('cartProds').innerHTML = "{{user.cart.products}}" || 0
                 </script> 
                 {{/if}}
             </div>

@@ -31,16 +31,30 @@ export default class UserRepository {
     }
 
     getUserById = async(id) => {
-        
-        const result = await this.dao.getUserById(id)
+        try {
+            
+            const result = await this.dao.getUserById(id)
+    
+            if (!result) {
+                return {code: 404, result: {status: "error", error: 'Not found'}}
+            }
+            
+            if(result?._id) result.id = result._id
+            if(result.cart?._id) result.cart.id = result.cart._id
+            if(result.cart?.products) {
+                let cont = 0
+                result.cart.products.forEach(prod => {
+                    cont += prod.quantity
+                }); 
+                result.cart.products = cont
+            }
+    
+            return result
 
-        if (!result) {
-            return {code: 404, result: {status: "error", error: 'Not found'}}
+        } catch (error) {
+            console.error(error);    
+            logger.error(error.message)
         }
-        
-        if(result?._id) result.id = result._id
-
-        return result
     }
 
     getUserByEmail = async(username) => {
@@ -53,11 +67,20 @@ export default class UserRepository {
             }
             
             if(result?._id) result.id = result._id
-    
+            if(result.cart?._id) result.cart.id = result.cart._id
+            if(result.cart?.products) {
+                let cont = 0
+                result.cart.products.forEach(prod => {
+                    cont += prod.quantity
+                }); 
+                result.cart.products = cont
+            }
+
             return result
         
         } catch (error) {
             console.error(error);    
+            logger.error(error.message)
         }
     }
 
@@ -75,31 +98,37 @@ export default class UserRepository {
     }
 
     deleteUser = async(username) => {
-
-        let user = await this.dao.getUserById(username)
-        if (!user) {
-            user = await this.dao.getUserByEmail(username)
+        try {
+            
+            let user = await this.dao.getUserById(username)
             if (!user) {
-                return null
-            }
-        }
-        
-
-        const result = await this.dao.delete(username)
-
-        if (result) {
-            if (user.documents.length != 0) {
-                for (let i = 0; i < user.documents.length; i++) {   
-                    const fileUrl = user.documents[i].reference    
-                    const fileRef = ref(storage, fileUrl);
-                    await deleteObject(fileRef)    
+                user = await this.dao.getUserByEmail(username)
+                if (!user) {
+                    return null
                 }
             }
-            delete user.password
-            delete user.documents
+            
+    
+            const result = await this.dao.delete(username)
+    
+            if (result) {
+                if (user.documents.length != 0) {
+                    for (let i = 0; i < user.documents.length; i++) {   
+                        const fileUrl = user.documents[i].reference    
+                        const fileRef = ref(storage, fileUrl);
+                        await deleteObject(fileRef)    
+                    }
+                }
+                delete user.password
+                delete user.documents
+            }
+    
+            return {code: 200, result: {status: "success", message: 'Usuario eliminado', payload: user} }
+            
+        } catch (error) {
+            console.error(error);    
+            logger.error(error.message)   
         }
-
-        return {code: 200, result: {status: "success", message: 'Usuario eliminado', payload: user} }
     }
 
     updateUser = async(username, newUser) => {
@@ -113,6 +142,7 @@ export default class UserRepository {
             return {code: 200, result: {status: "success", message: 'Usuario actualizado', payload: result} }
 
         } catch (error) {
+            console.error(error);    
             logger.error(error.message)
         }
         

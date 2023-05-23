@@ -1,4 +1,0 @@
-
-error: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
-error: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
-error: Cannot read properties of null (reading 'price')

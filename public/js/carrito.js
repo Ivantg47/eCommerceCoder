@@ -3,6 +3,8 @@ addProduct = async (cid, pid) => {
     const response = await fetch(`/api/carts/${cid}/product/${pid}`, {method: 'POST'})
     
     if (response.status == 200) {
+        let cont = document.getElementById('cartProds').innerHTML
+        document.getElementById('cartProds').innerHTML = parseInt(cont)+1
         alert('Producto añadido')
     } else if (response.status == 401){
         alert(response.statusText)
@@ -54,6 +56,8 @@ addProducts = async (cid, pid) => {
     });
     //console.log(response);
     if (response.status == 200) {
+        let cont = document.getElementById('cartProds').innerHTML
+        document.getElementById('cartProds').innerHTML = parseInt(cont)+parseInt(document.getElementById('quantity').value)
         alert('Producto añadido')
     } else if (response.status == 401){
         alert(response.statusText)

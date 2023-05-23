@@ -80,8 +80,16 @@ export default class CartRouter extends MiRouter {
                     }
                 }
                 const cart = await CartService.addProdCart(cid, pid, quantity)
-            
+                
+                if (cart.code==200) {
+                    
+                    req.user.cart.products += parseInt(quantity)
+                    req.session.user.cart.products += parseInt(quantity)
+                    
+                }
+
                 return res.status(cart.code).send(cart.result)
+
             } catch (error) {
                 req.logger.error(error.message);
                 return next()
@@ -93,7 +101,10 @@ export default class CartRouter extends MiRouter {
                 const { cid, pid } = req.params
                 
                 const cart = await CartService.deleteProdCart(cid, pid)
-            
+                if (cart.code==200) {   
+                    req.user.cart.products -= cart.result.payload.quantity
+                    req.session.user.cart.products -= cart.result.payload.quantity
+                }
                 return res.status(cart.code).send(cart.result)
 
             } catch (error) {

@@ -25,7 +25,7 @@ class UserMongoManager {
 
         try {
             
-            const result = await userModel.findById({_id: id}).lean().exec()
+            const result = await userModel.findById({_id: id}).populate('cart').lean().exec()
 
             return result
 
@@ -40,7 +40,7 @@ class UserMongoManager {
 
         try {
             
-            const result = await userModel.findOne({email: username}).lean().exec()
+            const result = await userModel.findOne({email: username}).populate('cart').lean().exec()
 
             return result
 
