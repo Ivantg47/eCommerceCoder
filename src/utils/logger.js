@@ -83,7 +83,7 @@ const logger = config.MODE == "DEV" ? devLog : prodLog
 
 export const addLogger = (req, res, next) => {
     req.logger = logger
-    req.logger.info(`${req.method} en ${req.url}`)
+    req.logger.debug(`${req.method} en ${req.url}`)
 
     next()
 }

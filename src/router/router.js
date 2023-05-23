@@ -45,11 +45,11 @@ export default class MiRouter {
 
     generateCustomResponses = (req, res, next) => {
         res.sendSuccess = payload => res.status(200).send({status: "success", payload})
-        res.sendServerError = error => res.status(500).render('error/general', {error: error, title: 'Error'})
-        res.sendUserError = error => res.status(400).render('error/general', {error: error, title: 'Error'})
-        res.sendNoAuthenticatedError = error => res.status(401).render('error/general', {error: error, title: 'Error'})
-        res.sendNoAuthorizatedError = error => res.status(403).render('error/general', {error: error, title: 'Error'})
-        res.sendNoFoundError = error => res.status(404).render('error/general', {error: error, title: 'Error'})
+        res.sendServerError = error => res.status(500).render('error/general', {error: error, title: 'Error', user: req.session?.user || req?.user})
+        res.sendUserError = error => res.status(400).render('error/general', {error: error, title: 'Error', user: req.session?.user || req?.user})
+        res.sendNoAuthenticatedError = error => res.status(401).render('error/general', {error: error, title: 'Error', user: req.session?.user || req?.user})
+        res.sendNoAuthorizatedError = error => res.status(403).render('error/general', {error: error, title: 'Error', user: req.session?.user || req?.user})
+        res.sendNoFoundError = error => res.status(404).render('error/general', {error: error, title: 'Error', user: req.session?.user || req?.user})
 
         next()
     }
