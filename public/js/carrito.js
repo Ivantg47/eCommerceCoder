@@ -8,6 +8,8 @@ addProduct = async (cid, pid) => {
         alert('Producto añadido')
     } else if (response.status == 401){
         alert(response.statusText)
+    } else if (response.status == 403){
+        alert("El producto no puede ser adquirido por el propietario")
     } else if (response.status == 404){
         window.location.replace("/session/login");
     } else {
@@ -61,6 +63,8 @@ addProducts = async (cid, pid) => {
         alert('Producto añadido')
     } else if (response.status == 401){
         alert(response.statusText)
+    } else if (response.status == 403){
+        alert("El producto no puede ser adquirido por el propietario")
     } else if (response.status == 404){
         window.location.replace("/session/login");
     } else {

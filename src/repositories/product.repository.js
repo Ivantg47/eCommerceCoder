@@ -96,7 +96,7 @@ export default class ProductRepository {
             } else {
                 
                 prod.thumbnail = await Promise.all(files.map(async (file) => {
-                    console.log("ff: ",file);
+                    
                     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E2)
                     const storageRef = ref(storage, `/img/products/${prod.title}-${uniqueSuffix}`)
                     const metadata = { contentType: file.mimetype, name: `${file.fieldname}-${uniqueSuffix}`}

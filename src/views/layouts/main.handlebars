@@ -58,7 +58,7 @@
                     document.getElementById('logbt').href = "/session/logout"
                     document.getElementById('logbt').innerHTML = "Salir"
                     document.getElementById('cart').action = "/carts/{{user.cart.id}}"
-                    document.getElementById('cartProds').innerHTML = "{{user.cart.products}}" || 0
+                    document.getElementById('cartProds').innerHTML = "{{user.cart.products}}"
                 </script> 
                 {{/if}}
             </div>
